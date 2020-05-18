@@ -2,12 +2,12 @@
   "nav":{
     "btn_home":"HOME",
     "btn_guide":"GUIDE",
-    "btn_lang":"FR"
+    "btn_lang":"EN"
   },
   "home":{
     "text_title":"Guide sur la recherche participative organisationnelle (RPO)",
     "text_desc":"<span class='subheading'>Disponible en français et en anglais,  ce guide fournit des recommandations pour aider toutes les parties prenantes </span><br/><span class='subheading'>(chercheurs, cliniciens, gestionnaires et patients partenaires) à mettre en œuvre un projet de recherche participative</span><br/> <span class='subheading'> qui vise à améliorer les pratiques dans une (ou des) organisation(s) de santé.</span>",
-    "btn_customize":"Customize"
+    "btn_customize":"Read the guide & Build your OPR plan"
   },
   "guide":{
     "text_step":[
@@ -24,7 +24,7 @@
     "btn_selectAll":"Select All",
     "btn_save":"Save",
     "cbx_selectHint":"Select this substep",
-    "txt_instrHint":"Customized Instructions",
+    "txt_instrHint":"Type specific details for your OPR here",
     "text_content":[
       {
         "title_text":"1. CONSTITUER UN GROUPE DE TRAVAIL EN RPO ET ÉTABLIR COLLECTIVEMENT DES PROCESSUS DE FONCTIONNEMENT. ",
