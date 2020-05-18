@@ -33,6 +33,9 @@ export default new Vuex.Store({
 		test:""
 	},
 	mutations: {
+		clickPanel(state, data){
+			Vue.set(state.panel_select[data.step], data.substep, !state.panel_select[data.step][data.substep])
+		},
 		readAllPanel(state, n) {
 			Vue.set(state.panel_read, n, new Array(state.substeps[n]).fill(true));
 			Vue.set(state.panel_progress, n, 100);

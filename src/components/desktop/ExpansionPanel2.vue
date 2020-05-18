@@ -52,7 +52,7 @@
 <script>
 import { mapState, mapMutations} from 'vuex'
 export default {
-  name: 'App',
+  name: 'Panel2',
 
   components: {
   },
@@ -102,4 +102,4 @@ export default {
 };
 </script>
 
-<style scoped src="../css/mycss.css"/>
+<style src="../../css/mycss.css"/>

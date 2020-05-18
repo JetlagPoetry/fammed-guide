@@ -72,13 +72,13 @@
 <script>
 import { mapState, mapMutations} from 'vuex'
 export default {
-  name: 'App',
+  name: 'Panel1',
 
   components: {
   },
 
   data: () => ({
-    step: 3,
+    step: 0,
     panel_expand : [],
     btn_expand : "",
     btn_show_expand : true,
@@ -90,8 +90,7 @@ export default {
       'panel_comment',
       'panel_select',
       'panel_read',
-      'panel_progress'])
-  },
+      'panel_progress'])},
 
   watch: {
   },
@@ -139,4 +138,4 @@ export default {
 };
 </script>
 
-<style scoped src="../css/mycss.css"/>
+<style src="../../css/mycss.css"/>

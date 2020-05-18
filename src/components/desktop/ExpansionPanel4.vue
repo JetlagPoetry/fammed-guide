@@ -6,6 +6,18 @@
       <div v-html="$t('guide.text_content['+step+'].intro_text')" class="my-4"></div>
       <v-divider></v-divider>
       <div class="d-flex justify-content-start my-4" >        
+        <v-progress-linear
+          :value="panel_progress[step]"
+          color="primary"
+          height="15px"
+          class="my-3 mx-4"
+          striped
+        >
+          <div style="color:white">
+            {{panel_progress[step].toFixed(0)}}%
+          </div>
+        </v-progress-linear>
+
           <v-btn color="primary" class="mx-2" @click="clickAllPanel()" style="width:16%; min-width: 160px">
               <v-icon left medium color="#fff" v-if="btn_show_expand">mdi-plus</v-icon>
               <v-icon left medium v-else>mdi-minus</v-icon>
@@ -21,12 +33,13 @@
           <v-expansion-panel
             v-for="(item,step_no) in substeps[step]"
             :key="step_no"
+            @click="readItem(step_no)"
             >
             <v-expansion-panel-header disable-icon-rotate>
-              <!-- {{subheader_text[step_no]}} -->
               {{$t('guide.text_content['+step+'].subheader_text['+step_no+']')}}
               <template v-slot:actions>
                 <v-icon color="primary" v-if="panel_select[step][step_no]">mdi-checkbox-marked-circle</v-icon>
+                <v-icon color="#ccc" v-else-if="panel_read[step][step_no]">mdi-checkbox-marked-circle</v-icon>
               </template>
             </v-expansion-panel-header>
             <v-expansion-panel-content class="pt-4">
@@ -56,17 +69,16 @@
   </v-card>
 </template>
 
-
 <script>
 import { mapState, mapMutations} from 'vuex'
 export default {
-  name: 'App',
+  name: 'Panel4',
 
   components: {
   },
 
   data: () => ({
-    step: 2,
+    step: 3,
     panel_expand : [],
     btn_expand : "",
     btn_show_expand : true,
@@ -76,7 +88,9 @@ export default {
     ...mapState([
       'substeps',
       'panel_comment',
-      'panel_select'])
+      'panel_select',
+      'panel_read',
+      'panel_progress'])
   },
 
   watch: {
@@ -89,13 +103,17 @@ export default {
 
   methods: {
       ...mapMutations([
-            'selectAllPanel'
+            'readAllPanel',
+            'selectAllPanel',
+            'progressIncrement',
+            'progressFinished'
           ]),
       clickAllPanel() {
         if(this.btn_show_expand){
           this.panel_expand = [...Array(this.substeps[this.step]).keys()].map((k, i) => i);
           this.btn_expand = this.$t('guide.btn_collapseAll');
           this.btn_show_expand = false;
+          this.readAllPanel(this.step);
         }else{
           this.panel_expand = [];
           this.btn_expand = this.$t('guide.btn_expandAll');
@@ -103,8 +121,22 @@ export default {
         }
         
       },
+
+      readItem (n) {
+        if(!this.panel_read[this.step][n]){
+          this.panel_read[this.step][n] = true;
+          this.progressIncrement(this.step);
+          if(this.panel_read[this.step].every(this.itemIsRead)){
+            this.progressFinished(this.step);
+          }
+        }
+      },
+
+      itemIsRead (item) {
+        return item===true;
+      },
     },
 };
 </script>
 
-<style scoped src="../css/mycss.css"/>
+<style src="../../css/mycss.css"/>

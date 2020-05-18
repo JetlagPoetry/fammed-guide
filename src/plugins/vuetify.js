@@ -9,7 +9,7 @@ export default new Vuetify({
       light: {
         primary: '#05668d',
         secondary: '#00a896',
-        third: 'ffc841',
+        third: '#ffc841',
         anchor: '#8c9eff',
         footer: '#028090',
         text: '#424242'
