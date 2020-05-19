@@ -26,8 +26,9 @@
     "btn_expandAll":"Expand All",
     "btn_collapseAll":"Collapse All",
     "btn_selectAll":"Select All",
+    "btn_unselectAll":"Unselect All",
     "btn_save":"Save",
-    "cbx_selectHint":"Select this substep",
+    "cbx_selectHint":"Add this recommendation to your OPR plan",
     "txt_instrHint":"Type specific details for your OPR here",
     "text_content":[
       {

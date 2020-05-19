@@ -23,6 +23,7 @@ export default new Vuex.Store({
 			["", "", "", "", "", "", "", "", "", "", ""]
 		],
 		btn_show_collapse: [false, false, false, false],
+		btn_show_unselect: [false, false, false, false],
 		// The diagram data.
 		diagram_data: "",
 		diagram_title: "",
@@ -32,12 +33,20 @@ export default new Vuex.Store({
 	},
 	mutations: {
 		// Select or unselect a single recommendation at data.step.substep
-		selectPanel(state, data){
-			Vue.set(state.panel_select[data.step], data.substep, !state.panel_select[data.step][data.substep])
+		togglePanel(state, data){
+			Vue.set(state.panel_select[data.step], data.substep, !state.panel_select[data.step][data.substep]);
 		},
-		// Select all recommendations in step n.
+		// Select a single recommendation at data.step.substep
+		selectPanel(state, data){
+			Vue.set(state.panel_select[data.step], data.substep, true);
+		},
+		// Select or unselect all recommendations in step n, based on btn_show_unselect[n]
 		selectAllPanel(state, n) {
-			Vue.set(state.panel_select, n, new Array(state.substeps[n]).fill(true));
+			if(state.btn_show_unselect[n]){
+				Vue.set(state.panel_select, n, new Array(state.substeps[n]).fill(false));
+			}else{
+				Vue.set(state.panel_select, n, new Array(state.substeps[n]).fill(true));
+			}
 		},
 		// Expand or fold all recommendations in step n, based on btn_show_collapse[n]
 		expandAllPanel(state, n){
@@ -48,7 +57,14 @@ export default new Vuex.Store({
 				// expand all recommendations
 				Vue.set(state.panel_expand, n, [...Array(state.substeps[n]).keys()].map((k, i) => i));
 			}
-			Vue.set(state.btn_show_collapse, n, !state.btn_show_collapse[n]);
+		},
+		// Switch select or unselect btn text
+		switchBtnUnselect(state, data){
+			Vue.set(state.btn_show_unselect, data.n, data.toUnselect);
+		},
+		// Switch expand or collapse btn text
+		switchBtnCollapse(state, data){
+			Vue.set(state.btn_show_collapse, data.n, data.toCollapse);
 		},
 		// Save the diagram data using map.
 		saveDiagramData(state, data) {
@@ -66,7 +82,7 @@ export default new Vuex.Store({
 		//save stepper step
 		saveStepperStep(state, step){
 			Vue.set(state, 'stepper_cur_step', step);
-		}
+		},
 	},
 	actions: {},
 

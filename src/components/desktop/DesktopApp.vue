@@ -106,7 +106,7 @@ export default {
 
   methods: {
     ...mapMutations([
-        'saveStepperStep'
+        'saveStepperStep',
       ]),
 
       toHomePage () {

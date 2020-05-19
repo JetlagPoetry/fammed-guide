@@ -10,7 +10,7 @@
           <v-col class="text-center pb-12" cols="12">
             <h1 class="mb-8" style="font-size: 38px;">{{$t('home.text_title')}}</h1>
             <div v-html="$t('home.text_desc')"></div>
-            <v-btn class="my-6" outlined x-large color="#fff" @click="toGuidePage">
+            <v-btn class="my-6" outlined x-large color="#fff" @click="toGuidePage(1)">
               {{$t('home.btn_customize')}}<v-icon right>mdi-arrow-right</v-icon> 
             </v-btn>
             
@@ -68,6 +68,7 @@
   </v-container>
 </template>
 <script>
+import {mapMutations} from 'vuex'
 export default {
   name: 'HomePage',
 
@@ -81,10 +82,13 @@ export default {
   },
 
   methods: {
-
-      toGuidePage() {
-        this.$router.push('/guide');
-      },
+    ...mapMutations([
+      'saveStepperStep'
+    ]),
+    toGuidePage(step) {
+      this.saveStepperStep(step);
+      this.$router.push('/guide');
+    },
   }
 };
 </script>

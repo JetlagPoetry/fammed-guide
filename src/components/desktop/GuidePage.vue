@@ -3,7 +3,7 @@
   <div class="mt-6 px-6 mx-auto" style="width:95%; max-width:1400px" >
     <v-container style="width:100%">
       <v-stepper
-        v-model="stepper_cur_step"
+        :value="stepper_cur_step"
         alt-labels 
         non-linear
         style="width:100%">
@@ -45,7 +45,10 @@
                       <v-icon left medium color="#fff">mdi-plus</v-icon>
                       {{$t('guide.btn_expandAll')}}
                   </v-btn>
-                  <v-btn color="primary" class="mx-2" @click="selectAllPanel(section)">
+                  <v-btn v-if="btn_show_unselect[section]" color="primary" class="mx-2" @click="selectAllPanel(section)">
+                      {{$t('guide.btn_unselectAll')}}
+                  </v-btn>
+                  <v-btn v-else color="primary" class="mx-2" @click="selectAllPanel(section)">
                       {{$t('guide.btn_selectAll')}}
                   </v-btn>
               </div>
@@ -56,12 +59,18 @@
                     :key="substep"
                     >
                     <v-expansion-panel-header class="py-0">
-                      <v-checkbox
-                          v-model="panel_select[section][substep]"
-                          @click.native="check($event)"
-                        ></v-checkbox>
-                        <span>
-                        {{$t('guide.text_content['+section+'].subheader_text['+substep+']')}}
+                      <v-tooltip top>
+                        <template v-slot:activator="{ on }">
+                          <v-checkbox
+                              v-model="panel_select[section][substep]"
+                              @click.native="check($event)"
+                              v-on="on"
+                            ></v-checkbox>
+                        </template>
+                        <span>{{$t('guide.cbx_selectHint')}}</span>
+                      </v-tooltip>
+                      <span>
+                      {{$t('guide.text_content['+section+'].subheader_text['+substep+']')}}
                       </span>
                     </v-expansion-panel-header>
                     <v-expansion-panel-content class="pt-4">
@@ -73,6 +82,7 @@
                           auto-grow
                           name="input-7-4"
                           :label="$t('guide.txt_instrHint')"
+                          v-on:input="selectPanel({step:section, substep:substep})"
                           v-model="panel_comment[section][substep]"
                         ></v-textarea>
                       </div>
@@ -116,7 +126,6 @@
 
 <script>
 import {mapState, mapMutations} from 'vuex'
-
 export default {
   name: 'Stepper',
 
@@ -133,31 +142,60 @@ export default {
 
   computed:{
     ...mapState([
-    'substeps',
-    'panel_comment',
-    'panel_select',
-    'panel_expand',
-    'btn_show_collapse',
-    'stepper_cur_step'
-  ])},
+      'substeps',
+      'panel_comment',
+      'panel_select',
+      'panel_expand',
+      'btn_show_collapse',
+      'btn_show_unselect',
+      'stepper_cur_step'
+    ]),
+  },
 
-  watch: {
-      steps (val) {
-        if (this.stepper_cur_step > val) {
-          this.stepper_cur_step = val;
-        }
-        if(this.stepper_cur_step < 1){
-          this.stepper_cur_step = 1;
-        }
-      },
-    },
+
   mounted:function(){
   },
+
+  watch: {
+    panel_select: {
+      handler: function (val) {
+        var i;
+        for(i=0; i<=3; i++){
+          if(val[i].every(this.itemIsTrue)){
+            this.switchBtnUnselect({n:i, toUnselect: true});
+          }else{
+            this.switchBtnUnselect({n:i, toUnselect: false});
+          }
+        }
+      },
+      deep: true
+    },
+    panel_expand: {
+      handler: function (val) {
+        var i, j;
+        for(i=0; i<=3; i++){
+          for(j=0; j<this.substeps[i]; j++){
+            if(val[i].indexOf(j)<0){
+              this.switchBtnCollapse({n:i, toCollapse: false});
+              break;
+            }
+            this.switchBtnCollapse({n:i, toCollapse: true});
+          }
+        }
+      },
+      deep: true
+    },
+  },
+
   methods: {
     ...mapMutations([
+        'selectPanel',
         'saveDiagramData',
         'expandAllPanel',
-        'selectAllPanel'
+        'selectAllPanel',
+        'switchBtnUnselect',
+        'switchBtnCollapse',
+        'saveStepperStep'
       ]),
 
     toSummary () {
@@ -186,18 +224,20 @@ export default {
         this.$router.push('/summary');
       },
 
-
       nextStep (n) {
-        this.stepper_cur_step = n + 1;
+        this.saveStepperStep(n+1);
       },
 
       lastStep (n) {
-        this.stepper_cur_step = n - 1;
+        this.saveStepperStep(n-1);
       },
 
       check: function(e) {
         e.cancelBubble = true;
       },
+      itemIsTrue(value){
+        return value;
+      }
     },
 };
 </script>

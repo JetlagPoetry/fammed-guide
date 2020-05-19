@@ -26,8 +26,7 @@ import jsPDF from 'jspdf'
 // import html2pdf from 'html2pdf'
 import go from 'gojs'
 import Diagram2 from './Diagram2.vue'
-import {mapState} from 'vuex'
-
+import {mapState, mapMutations} from 'vuex'
 export default {
   name: 'Summary',
 
@@ -53,7 +52,12 @@ export default {
   },
   
   methods: {
+    ...mapMutations([
+      'saveStepperStep',
+    ]),
+
     toGuidePage() {
+      this.saveStepperStep(1);
       this.$router.push('/guide');
     },
 

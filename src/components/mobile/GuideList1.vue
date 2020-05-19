@@ -13,7 +13,7 @@
         <v-card 
           elevation="4" 
           :dark="panel_select[step][step_no]"
-          @click="clickPanel({step:step, substep:step_no})"
+          @click="togglePanel({step:step, substep:step_no})"
            >
           <div class="flex-no-wrap justify-space-between">
             <div>
@@ -85,7 +85,7 @@ export default {
   methods: {
     ...mapMutations([
           'selectAllPanel',
-          'clickPanel'
+          'togglePanel'
         ]),
     check: function(e) {
       e.cancelBubble = true;
