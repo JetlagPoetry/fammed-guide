@@ -2,7 +2,11 @@
   "nav":{
     "btn_home":"HOME",
     "btn_guide":"GUIDE",
-    "btn_lang":"FR"
+    "btn_lang":"FR",
+    "btn_sec1":"SECTION 1",
+    "btn_sec2":"SECTION 2",
+    "btn_sec3":"SECTION 3",
+    "btn_sec4":"SECTION 4"
   },
   "home":{
     "text_title":"ORGANIZATIONAL PARTICIPATORY RESEARCH Practice Guide",

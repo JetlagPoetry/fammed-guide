@@ -13,11 +13,8 @@ export default new Vuex.Store({
 			[false, false, false, false],
 			[false, false, false, false, false, false, false, false, false, false, false]
 		],
-		panel_read: [
-			[false, false, false, false, false, false, false, false],
-			[false, false, false],
-			[false, false, false, false],
-			[false, false, false, false, false, false, false, false, false, false, false]
+		panel_expand: [
+			[],[],[],[]
 		],
 		panel_comment: [
 			["", "", "", "", "", "", "", ""],
@@ -25,44 +22,50 @@ export default new Vuex.Store({
 			["", "", "", ""],
 			["", "", "", "", "", "", "", "", "", "", ""]
 		],
-		panel_progress: [0, 0, 0, 0],
+		btn_show_collapse: [false, false, false, false],
+		// The diagram data.
 		diagram_data: "",
 		diagram_title: "",
 		diagram_width: 0,
 		diagram_height: 0,
-		test:""
+		stepper_cur_step: 1,
 	},
 	mutations: {
-		clickPanel(state, data){
+		// Select or unselect a single recommendation at data.step.substep
+		selectPanel(state, data){
 			Vue.set(state.panel_select[data.step], data.substep, !state.panel_select[data.step][data.substep])
 		},
-		readAllPanel(state, n) {
-			Vue.set(state.panel_read, n, new Array(state.substeps[n]).fill(true));
-			Vue.set(state.panel_progress, n, 100);
-		},
+		// Select all recommendations in step n.
 		selectAllPanel(state, n) {
 			Vue.set(state.panel_select, n, new Array(state.substeps[n]).fill(true));
-			Vue.set(state.panel_read, n, new Array(state.substeps[n]).fill(true));
-			Vue.set(state.panel_progress, n, 100);
 		},
-		progressIncrement(state, n) {
-			Vue.set(state.panel_progress, n, state.panel_progress[n] + 100.0 / state.substeps[n]);
+		// Expand or fold all recommendations in step n, based on btn_show_collapse[n]
+		expandAllPanel(state, n){
+			if(state.btn_show_collapse[n]){
+				// collapse all recommendations
+				Vue.set(state.panel_expand, n, []);
+			}else{
+				// expand all recommendations
+				Vue.set(state.panel_expand, n, [...Array(state.substeps[n]).keys()].map((k, i) => i));
+			}
+			Vue.set(state.btn_show_collapse, n, !state.btn_show_collapse[n]);
 		},
-		progressFinished(state, n) {
-			Vue.set(state.panel_progress, n, 100);
-		},
+		// Save the diagram data using map.
 		saveDiagramData(state, data) {
 			Vue.set(state, 'diagram_data', data);
 		},
-		updateTest(state, data){
-			Vue.set(state, 'test', data);
-		},
+		// Save the diagram size.
 		storeDiagramSize(state, data){
 			Vue.set(state, 'diagram_height', data.height);
 			Vue.set(state, 'diagram_width', data.width);
 		},
+		// Save the diagram title.
 		storeDiagramTitle(state, data){
 			Vue.set(state, 'diagram_title', data);
+		},
+		//save stepper step
+		saveStepperStep(state, step){
+			Vue.set(state, 'stepper_cur_step', step);
 		}
 	},
 	actions: {},
@@ -70,6 +73,7 @@ export default new Vuex.Store({
 	modules: {},
 
 	plugins: [
+		// Vuex data persistancem. The diagram remains even we click 'reload the page'
 		createPersistedState({
 			storage: window.sessionStorage,
 			reducer(val) {

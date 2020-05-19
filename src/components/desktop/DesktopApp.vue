@@ -22,20 +22,44 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn
+        <v-btn
           @click="toHomePage"
           text
         >
           <span class="mr-2">{{$t('nav.btn_home')}}</span>
         </v-btn>
         <v-btn
-          @click="toGuidePage"
+          @click="toGuideSection(1)"
           text
         >
           <span class="mr-2">{{$t('nav.btn_guide')}}</span>
         </v-btn>
         <v-btn
-          @click="changeLanguage"
+          @click="toGuideSection(1)"
+          text
+        >
+          <span class="mr-2">{{$t('nav.btn_sec1')}}</span>
+        </v-btn>
+        <v-btn
+          @click="toGuideSection(2)"
+          text
+        >
+          <span class="mr-2">{{$t('nav.btn_sec2')}}</span>
+        </v-btn>
+        <v-btn
+          @click="toGuideSection(3)"
+          text
+        >
+          <span class="mr-2">{{$t('nav.btn_sec3')}}</span>
+        </v-btn>
+        <v-btn
+          @click="toGuideSection(4)"
+          text
+        >
+          <span class="mr-2">{{$t('nav.btn_sec4')}}</span>
+        </v-btn>
+        <v-btn
+          @click="changeLanguage()"
           text
         >
           <span class="mr-2">{{$t('nav.btn_lang')}}</span>
@@ -60,7 +84,7 @@
 </template>
 
 <script>
-
+import {mapState, mapMutations} from 'vuex'
 export default {
   name: 'DesktopApp',
 
@@ -71,16 +95,30 @@ export default {
     fab: false
   }),
 
+  computed:{
+      ...mapState([
+      'stepper_cur_step'
+    ])},
+
   watch: {
 
     },
 
   methods: {
+    ...mapMutations([
+        'saveStepperStep'
+      ]),
+
       toHomePage () {
         this.$router.push('/home');
       },
 
       toGuidePage() {
+        this.$router.push('/guide');
+      },
+
+      toGuideSection(step){
+        this.saveStepperStep(step);
         this.$router.push('/guide');
       },
 
@@ -99,7 +137,8 @@ export default {
       },
       toTop() {
         this.$vuetify.goTo(0);
-      }
+      },
+
 
     },
 };
