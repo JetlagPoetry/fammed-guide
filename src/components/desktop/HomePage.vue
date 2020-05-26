@@ -1,17 +1,22 @@
 <template>
   <v-container fluid style="padding:0; margin:0">
     <v-parallax
-      
       style="background: linear-gradient(to right bottom, rgba(240,243,189,1) 0%, rgba(0,168,150,1) 49%, rgba(5,102,141,1) 100%);height: 90vh; min-height:600px"><!--background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)-->
           <v-row
             align="center"
             justify="center"
           >
           <v-col class="text-center pb-12" cols="12">
-            <h1 class="mb-8" style="font-size: 38px;">{{$t('home.text_title')}}</h1>
+            <h1 class="mb-8 head1" >{{$t('home.text_title')}}</h1>
             <div v-html="$t('home.text_desc')"></div>
             <v-btn class="my-6" outlined x-large color="#fff" @click="toGuidePage(1)">
               {{$t('home.btn_customize')}}<v-icon right>mdi-arrow-right</v-icon> 
+            </v-btn>
+            <v-btn class="my-6" outlined x-large color="#fff" :href="require('../../assets/guide.pdf')" download="OPR_guide.pdf">
+              download my resume
+            </v-btn>
+            <v-btn class="my-6" outlined x-large color="#fff" :href="require('../../assets/diagram.pdf')" download="OPR_diagram.pdf">
+              Export all recommendations 
             </v-btn>
             
           </v-col>
@@ -23,7 +28,7 @@
         <div class="col-md-12">
           <div class="row">
             <div class="col-lg-5 col-md-4 p-md-4 col-3"> 
-              <img class="img-fluid" align="right" src="tree.PNG" style="width:25vw; border:5px" alt="PDF Template" > 
+              <img class="img-fluid" align="right" src="tree.PNG" style="height:15vw; border:5px" alt="PDF Template" > 
             </div>
             <div class="col-md-6 offset-lg-1 d-flex flex-column justify-content-center py-4">
               <h2 class="my-3"> <b>Customize your own research plan</b> </h2>

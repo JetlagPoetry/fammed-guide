@@ -2,5 +2,15 @@ module.exports = {
   "transpileDependencies": [
     "vuetify"
   ],
-  publicPath: '/fammed-guide/'
+  publicPath: '/fammed-guide/',
+  chainWebpack: config => {
+    config.module.rule('downloads')
+      // bundle common document files
+      .test(/\.(pdf|docx?|xlsx?|csv|pptx?)(\?.*)?$/)
+      .use('file-loader')
+        // use the file-loader
+        .loader('file-loader')
+        // bundle into the "downloads" directory
+        .options({ name: 'downloads/[name].[hash:8].[ext]' })
+  }
 }
