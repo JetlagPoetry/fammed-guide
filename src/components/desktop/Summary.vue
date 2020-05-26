@@ -13,26 +13,22 @@
               <v-icon right color="primary">mdi-arrow-right</v-icon>
           </v-btn>
         </div>
-        <div class="row">
-            <div 
-              class="mr-12"
-              style="width:30%; min-width:220px">
-              <h2>Add your header</h2>
-              {{logo_height}}--{{logo_width}}
-              <v-text-field
-                class="my-6 mx-2"
-                dense
-                label="Group name"
-                v-model="group_name"
-              ></v-text-field>
-            </div>  
-            <div class="ml-12" >
-              <h2>Upload your logo</h2>
-              <input type="file" @change="uploadImage($event)">
-              <v-img id="upload_logo" contain :src="image" max-height="120" max-width="400"/>
-            </div>
-          </div>
-        <!-- <v-divider class="my-6"></v-divider> -->
+        <div 
+          class="mr-12"
+          style="width:25%; min-width:220px">
+          <h2>{{$t('summary.title_header')}}</h2>
+          <v-text-field
+            class="my-12 mx-2"
+            dense
+            label="Group name"
+            v-model="group_name"
+          ></v-text-field>
+        </div>  
+        <div>
+          <h2>{{$t('summary.title_logo')}}</h2>
+          <input type="file" @change="uploadImage($event)">
+          <canvas id="logo_canvas"></canvas>
+        </div>
         <h2 class="my-4">{{$t('summary.title_summary')}}</h2>
 
         <diagram2 class="mx-6" ref="diag" v-bind:model-data="diagram_data" style="background-color: #fff; width: 100%;"></diagram2>
@@ -43,7 +39,7 @@
 
 <script>
 import jsPDF from 'jspdf'
-// import $ from 'jquery'
+import $ from 'jquery'
 import go from 'gojs'
 import Diagram2 from './Diagram2.vue'
 import {mapState, mapMutations} from 'vuex'
@@ -55,9 +51,11 @@ export default {
   },
 
   data: () => ({
-    image: require("../../assets/logo.png"),
+    // image: require("../../assets/logo.png"),
     group_name: "",
     prefix:"OPR plan",
+    logo_default: require('../../assets/logo.png'),
+    logo_data: "",
     logo_width: 20,
     logo_height: 20
   }),
@@ -72,7 +70,7 @@ export default {
   },
 
   mounted: function() {
-
+    this.drawImage(this, this.logo_default);
   },
   
   methods: {
@@ -90,11 +88,27 @@ export default {
       if (!files.length)
         return;
       var reader = new FileReader();
+      var self = this;
       reader.onload = (e) => {
-        this.image = e.target.result;
+        this.drawImage(self, e.target.result);
       };
       reader.readAsDataURL(files[0]);
-      
+    },
+
+    drawImage(self, image_src) {
+      var image = new Image();
+      image.src = image_src;
+      image.onload = function(){
+        self.logo_height = image.height;
+        self.logo_width = image.width;
+        var canvas = $('#logo_canvas')[0];
+        var context = canvas.getContext('2d');
+        canvas.height = 150;
+        canvas.width = canvas.height*image.width/image.height;
+        context.drawImage(image, 0, 0, image.width, image.height, 
+          0, 0, canvas.width, canvas.height);
+        self.logo_data = canvas.toDataURL('image/png');
+      }
     },
 
     generateImages() {
@@ -120,8 +134,8 @@ export default {
 
       //print logo
       var logo_height_inpdf = 20;
-      var logo_width_inpdf = 20 * this.logo_width / this.logo_height;
-      doc.addImage(this.image, "JPEG", 20, 2, logo_width_inpdf, logo_height_inpdf);
+      var logo_width_inpdf = logo_height_inpdf * this.logo_width / this.logo_height;
+      doc.addImage(this.logo_data, "JPEG", 20, 2, logo_width_inpdf, logo_height_inpdf);
 
       //print title
       var title = this.prefix+(this.group_name===""?'':' - ')+this.group_name;

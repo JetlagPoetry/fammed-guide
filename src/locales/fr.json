@@ -120,6 +120,8 @@
   "summary":{
     "btn_modify":"Modify Your Customization",
     "btn_download":"Download Your PDF",
-    "title_summary":"Summary"
+    "title_summary":"Summary",
+    "title_header":"Add your group name",
+    "title_logo":"Upload your logo"
   }
 }
