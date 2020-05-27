@@ -110,16 +110,16 @@ export default {
       ]),
 
       toHomePage () {
-        this.$router.push('/home');
+        this.$router.push('/home').catch(err => err);
       },
 
       toGuidePage() {
-        this.$router.push('/guide');
+        this.$router.push('/guide').catch(err => err);
       },
 
       toGuideSection(step){
         this.saveStepperStep(step);
-        this.$router.push('/guide');
+        this.$router.push('/guide').catch(err => err);
       },
 
       changeLanguage(){

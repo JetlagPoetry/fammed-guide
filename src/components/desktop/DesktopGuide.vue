@@ -129,7 +129,7 @@
 <script>
 import {mapState, mapMutations} from 'vuex'
 export default {
-  name: 'Stepper',
+  name: 'DesktopGuide',
 
   components: {
   },

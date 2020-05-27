@@ -8,7 +8,7 @@ import {mapMutations} from 'vuex'
 import go from 'gojs';
 export default {
 
-  name: "Diagram2",
+  name: "TreeDiagram",
 
   data: () => ({
     diagram: '',

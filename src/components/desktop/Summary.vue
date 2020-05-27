@@ -31,7 +31,7 @@
         </div>
         <h2 class="my-4">{{$t('summary.title_summary')}}</h2>
 
-        <diagram2 class="mx-6" ref="diag" v-bind:model-data="diagram_data" style="background-color: #fff; width: 100%;"></diagram2>
+        <TreeDiagram class="mx-6" ref="diag" v-bind:model-data="diagram_data" style="background-color: #fff; width: 100%;"></TreeDiagram>
       </div>
     </v-row>
   </v-container>
@@ -41,13 +41,13 @@
 import jsPDF from 'jspdf'
 import $ from 'jquery'
 import go from 'gojs'
-import Diagram2 from './Diagram2.vue'
+import TreeDiagram from './TreeDiagram.vue'
 import {mapState, mapMutations} from 'vuex'
 export default {
   name: 'Summary',
 
   components: {
-    Diagram2,
+    TreeDiagram,
   },
 
   data: () => ({

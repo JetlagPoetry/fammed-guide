@@ -1,8 +1,8 @@
 import DesktopApp from '../components/desktop/DesktopApp.vue';
 import MobileApp from '../components/mobile/MobileApp.vue';
-import desktop_home from '../components/desktop/HomePage.vue';
-import desktop_guide from '../components/desktop/GuidePage.vue';
-import desktop_summary from '../components/desktop/Summary.vue';
+import DesktopHome from '../components/desktop/DesktopHome.vue';
+import DesktopGuide from '../components/desktop/DesktopGuide.vue';
+import Summary from '../components/desktop/Summary.vue';
 import mobile_list1 from '../components/mobile/GuideList1.vue';
 // import mobile_list2 from '../components/mobile/GuideList2.vue';
 
@@ -13,9 +13,9 @@ const routes = [
         component: DesktopApp,
         redirect: '/home',
         children:[
-            { name: 'home', path: '/home', component: desktop_home },
-            { name: 'guide', path: '/guide', component: desktop_guide },
-            { name: 'summary', path: '/summary', component: desktop_summary },
+            { name: 'home', path: '/home', component: DesktopHome },
+            { name: 'guide', path: '/guide', component: DesktopGuide },
+            { name: 'summary', path: '/summary', component: Summary },
         ] 
     },
     { 
