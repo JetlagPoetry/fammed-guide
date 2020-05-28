@@ -120,8 +120,6 @@ export default {
   },
 
   mounted:function(){
-    //test
-    window.scrollTo(0, 0);
   },
 
   methods: {
@@ -137,16 +135,21 @@ export default {
     },
     nextStep (n) {
       this.setListStep(n+1);
-      this.reload();
+      this.scrollToTop();
     },
 
     lastStep (n) {
       this.setListStep(n-1);
-      this.reload();
+      this.scrollToTop();
     },
+
+    scrollToTop() {
+      window.scrollTo(0,0);
+    },
+
     itemIsTrue(value){
-        return value;
-      }
+      return value;
+    },
   },
 };
 </script>

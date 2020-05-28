@@ -109,11 +109,13 @@ export default {
     },
 
     toHome(){
+      this.scrollToTop();
       this.$router.push('/mobile/home').catch(err => err);
     },
 
     toGuide (n) {
       this.setListStep(n-1);
+      this.scrollToTop();
       this.$router.push('/mobile/guide').catch(err => err);
     },
       
@@ -124,6 +126,10 @@ export default {
         this.$i18n.locale='fr';
       }
     },
+
+    scrollToTop() {
+      window.scrollTo(0,0);
+    }
     
   }
 };

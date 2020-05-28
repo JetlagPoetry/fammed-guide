@@ -18,7 +18,7 @@ const routes = [
             { name: 'home', path: '/home', component: DesktopHome },
             { name: 'guide', path: '/guide', component: DesktopGuide },
             { name: 'summary', path: '/summary', component: Summary },
-        ] 
+        ]
     },
     { 
         name: 'mobile', 
