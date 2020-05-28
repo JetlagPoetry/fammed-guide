@@ -1,9 +1,11 @@
 import DesktopApp from '../components/desktop/DesktopApp.vue';
-import MobileApp from '../components/mobile/MobileApp.vue';
 import DesktopHome from '../components/desktop/DesktopHome.vue';
 import DesktopGuide from '../components/desktop/DesktopGuide.vue';
 import Summary from '../components/desktop/Summary.vue';
-import mobile_list1 from '../components/mobile/GuideList1.vue';
+
+import MobileApp from '../components/mobile/MobileApp.vue';
+import MobileHome from '../components/mobile/MobileHome.vue';
+import MobileGuideList from '../components/mobile/MobileGuideList.vue';
 // import mobile_list2 from '../components/mobile/GuideList2.vue';
 
 const routes = [
@@ -22,9 +24,10 @@ const routes = [
         name: 'mobile', 
         path: '/mobile', 
         component: MobileApp,
-        redirect: '/mobile/list1',
+        redirect: '/mobile/home',
         children:[
-            { name: 'list1', path: 'list1', component: mobile_list1},
+            { name: 'mobile_home', path: 'home', component: MobileHome},
+            { name: 'mobile_guide', path: 'guide', component: MobileGuideList},
             // { name: 'list2', path: 'list2', component: mobile_list2}
         ] 
     }

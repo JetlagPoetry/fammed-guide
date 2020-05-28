@@ -88,10 +88,10 @@ export default {
 
   methods: {
     ...mapMutations([
-      'saveStepperStep'
+      'setStepperStep'
     ]),
     toGuidePage(step) {
-      this.saveStepperStep(step);
+      this.setStepperStep(step);
       this.$router.push('/guide');
     },
   }

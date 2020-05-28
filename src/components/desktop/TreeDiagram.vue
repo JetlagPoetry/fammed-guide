@@ -134,14 +134,14 @@ export default {
     },
 
     ...mapMutations([
-      'storeDiagramSize',
-      'storeDiagramTitle'
+      'setDiagramSize',
+      'setDiagramTitle'
     ]),
     loadDiagramProperties: function(e) {
       var dia = e.diagram;
       dia.div.style.height = (dia.documentBounds.height+24) + "px";
-      this.storeDiagramSize({height: dia.documentBounds.height+24, width: dia.documentBounds.width});
-      this.storeDiagramTitle(this.$t('home.text_title'));
+      this.setDiagramSize({height: dia.documentBounds.height+24, width: dia.documentBounds.width});
+      this.setDiagramTitle(this.$t('home.text_title'));
     }
 
     

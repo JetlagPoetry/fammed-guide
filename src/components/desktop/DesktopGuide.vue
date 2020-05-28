@@ -3,7 +3,7 @@
   <div class="mt-6 px-6 mx-auto" style="width:95%; max-width:1400px" >
     <v-container style="width:100%">
       <v-stepper
-        :value="stepper_cur_step"
+        :value="stepper_current_step"
         alt-labels 
         non-linear
         style="width:100%">
@@ -150,7 +150,7 @@ export default {
       'panel_expand',
       'btn_show_collapse',
       'btn_show_unselect',
-      'stepper_cur_step'
+      'stepper_current_step'
     ]),
   },
 
@@ -192,12 +192,12 @@ export default {
   methods: {
     ...mapMutations([
         'selectPanel',
-        'saveDiagramData',
+        'setDiagramData',
         'expandAllPanel',
         'selectAllPanel',
         'switchBtnUnselect',
         'switchBtnCollapse',
-        'saveStepperStep'
+        'setStepperStep'
       ]),
 
     toSummary () {
@@ -222,16 +222,16 @@ export default {
             
           }
         }
-        this.saveDiagramData(data);
+        this.setDiagramData(data);
         this.$router.push('/summary');
       },
 
       nextStep (n) {
-        this.saveStepperStep(n+1);
+        this.setStepperStep(n+1);
       },
 
       lastStep (n) {
-        this.saveStepperStep(n-1);
+        this.setStepperStep(n-1);
       },
 
       check: function(e) {

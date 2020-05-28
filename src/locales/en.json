@@ -11,7 +11,9 @@
   "home":{
     "text_title":"ORGANIZATIONAL PARTICIPATORY RESEARCH Practice Guide",
     "text_desc":"<span class='subheading'>Available in French and English , this guide provides recommendations to help all stakeholders </span><br/><span class='subheading'>(researchers, clinicians, managers and patient partners) to implement a participatory research</span><br/> <span class='subheading'>  project that aims to improve practices in one (or more) organization (s) of health.</span>",
-    "btn_customize":"Read the guide & Build your OPR plan"
+    "btn_customize":"Read the guide & Build your OPR plan",
+    "btn_download_diagram":"Export all recommendations",
+    "btn_download_guide":"Download PRO guide"
   },
   "guide":{
     "text_step":[

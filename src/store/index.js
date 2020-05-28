@@ -29,7 +29,8 @@ export default new Vuex.Store({
 		diagram_title: "",
 		diagram_width: 0,
 		diagram_height: 0,
-		stepper_cur_step: 1,
+		stepper_current_step: 1,
+		list_current_step: 0,
 	},
 	mutations: {
 		// Select or unselect a single recommendation at data.step.substep
@@ -67,21 +68,25 @@ export default new Vuex.Store({
 			Vue.set(state.btn_show_collapse, data.n, data.toCollapse);
 		},
 		// Save the diagram data using map.
-		saveDiagramData(state, data) {
+		setDiagramData(state, data) {
 			Vue.set(state, 'diagram_data', data);
 		},
 		// Save the diagram size.
-		storeDiagramSize(state, data){
+		setDiagramSize(state, data){
 			Vue.set(state, 'diagram_height', data.height);
 			Vue.set(state, 'diagram_width', data.width);
 		},
 		// Save the diagram title.
-		storeDiagramTitle(state, data){
-			Vue.set(state, 'diagram_title', data);
+		setDiagramTitle(state, title){
+			Vue.set(state, 'diagram_title', title);
 		},
-		//save stepper step
-		saveStepperStep(state, step){
-			Vue.set(state, 'stepper_cur_step', step);
+		// set desktop stepper step
+		setStepperStep(state, step){
+			Vue.set(state, 'stepper_current_step', step);
+		},
+		// set mobile list step
+		setListStep(state, step){
+			Vue.set(state, 'list_current_step', step);
 		},
 	},
 	actions: {},

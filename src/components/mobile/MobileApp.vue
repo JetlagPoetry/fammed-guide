@@ -30,8 +30,8 @@
     </v-app-bar>
     <v-navigation-drawer
       v-model="drawer"
-      absolute
-      temporary>
+      app
+      fixed>
       <v-list
         nav
         dense
@@ -40,32 +40,42 @@
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         >
-          <v-list-item @click="toList1()">
+          <v-list-item @click="toHome()">
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="toGuide(1)">
             <v-list-item-title>Chapter1</v-list-item-title>
           </v-list-item>
 
-          <v-list-item @click="toList2()">
+          <v-list-item @click="toGuide(2)">
             <v-list-item-title>Chapter2</v-list-item-title>
           </v-list-item>
 
-          <v-list-item @click="toList3()">
+          <v-list-item @click="toGuide(3)">
             <v-list-item-title>Chapter3</v-list-item-title>
           </v-list-item>
 
-          <v-list-item @click="toList4()">
+          <v-list-item @click="toGuide(4)">
             <v-list-item-title>Chapter4</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-content class="mx-4">
-      <router-view></router-view>
+    <v-content>
+      <router-view v-if="isRouterAlive"></router-view>
     </v-content>
   </v-app>
 </template>
 <script>
+import {mapMutations} from 'vuex'
 export default {
   name: 'MobileApp',
+
+  provide(){
+    return{
+      reload: this.reload
+    }
+  },
 
   components: {
   },
@@ -73,6 +83,7 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
+    isRouterAlive: true
   }),
 
   watch: {
@@ -81,21 +92,29 @@ export default {
     },
   },
 
+  mounted:function(){
+  },
+
   methods: {
-    toList1 () {
-      this.$router.push('/mobile/list1');
+    ...mapMutations([
+      'setListStep',
+    ]),
+
+    // For Guide list refresh within the same vue.
+    reload(){
+      this.isRouterAlive = false;
+      this.$nextTick(function(){
+        this.isRouterAlive = true;
+      });
     },
 
-    toList2 () {
-      this.$router.push('/mobile/list2');
+    toHome(){
+      this.$router.push('/mobile/home').catch(err => err);
     },
 
-    toList3 () {
-      this.$router.push('/mobile/list3');
-    },
-
-    toList4 () {
-      this.$router.push('/mobile/list4');
+    toGuide (n) {
+      this.setListStep(n-1);
+      this.$router.push('/mobile/guide').catch(err => err);
     },
       
     changeLanguage(){

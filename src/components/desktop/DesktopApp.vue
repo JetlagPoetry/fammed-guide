@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import {mapState, mapMutations} from 'vuex'
+import {mapMutations} from 'vuex'
 export default {
   name: 'DesktopApp',
 
@@ -95,18 +95,13 @@ export default {
     fab: false
   }),
 
-  computed:{
-      ...mapState([
-      'stepper_cur_step'
-    ])},
-
   watch: {
 
     },
 
   methods: {
     ...mapMutations([
-        'saveStepperStep',
+        'setStepperStep',
       ]),
 
       toHomePage () {
@@ -118,7 +113,7 @@ export default {
       },
 
       toGuideSection(step){
-        this.saveStepperStep(step);
+        this.setStepperStep(step);
         this.$router.push('/guide').catch(err => err);
       },
 

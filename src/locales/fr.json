@@ -11,7 +11,9 @@
   "home":{
     "text_title":"Guide sur la recherche participative organisationnelle (RPO)",
     "text_desc":"<span class='subheading'>Disponible en français et en anglais,  ce guide fournit des recommandations pour aider toutes les parties prenantes </span><br/><span class='subheading'>(chercheurs, cliniciens, gestionnaires et patients partenaires) à mettre en œuvre un projet de recherche participative</span><br/> <span class='subheading'> qui vise à améliorer les pratiques dans une (ou des) organisation(s) de santé.</span>",
-    "btn_customize":"Read the guide & Build your OPR plan"
+    "btn_customize":"Read the guide & Build your OPR plan",
+    "btn_download_diagram":"Export all recommendations",
+    "btn_download_guide":"Download PRO guide"
   },
   "guide":{
     "text_step":[
