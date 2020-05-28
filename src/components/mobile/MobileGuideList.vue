@@ -120,6 +120,7 @@ export default {
   },
 
   mounted:function(){
+    //test
     window.scrollTo(0, 0);
   },
 
