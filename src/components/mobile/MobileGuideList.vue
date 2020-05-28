@@ -120,7 +120,6 @@ export default {
   },
 
   mounted:function(){
-    // this.reload();
     window.scrollTo(0, 0);
   },
 
