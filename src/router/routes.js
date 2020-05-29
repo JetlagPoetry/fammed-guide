@@ -28,6 +28,7 @@ const routes = [
         children:[
             { name: 'mobile_home', path: 'home', component: MobileHome},
             { name: 'mobile_guide', path: 'guide', component: MobileGuideList},
+            { name: 'summary', path: 'summary', component: Summary},
             // { name: 'list2', path: 'list2', component: mobile_list2}
         ] 
     }

@@ -6,6 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
+		is_mobile: false,
 		substeps: [8, 3, 4, 11],
 		panel_select: [
 			[false, false, false, false, false, false, false, false],
@@ -33,6 +34,10 @@ export default new Vuex.Store({
 		list_current_step: 0,
 	},
 	mutations: {
+		// Set if the device is mobile or desktop
+		setMobileDevice(state, isMobile){
+			Vue.set(state, 'is_mobile', isMobile);
+		},
 		// Select or unselect a single recommendation at data.step.substep
 		togglePanel(state, data){
 			Vue.set(state.panel_select[data.step], data.substep, !state.panel_select[data.step][data.substep]);

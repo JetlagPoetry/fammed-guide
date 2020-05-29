@@ -129,10 +129,13 @@ export default {
       'setListStep',
       'selectAllPanel',
       'switchBtnUnselect',
+      'setDiagramData'
     ]),
+
     check: function(e) {
       e.cancelBubble = true;
     },
+
     nextStep (n) {
       this.setListStep(n+1);
       this.scrollToTop();
@@ -150,6 +153,33 @@ export default {
     itemIsTrue(value){
       return value;
     },
+
+    toSummary () {
+        var data = [];
+        var i;
+        var key=0;
+        for(i=0; i<4; i++){
+
+          var parent = key;
+          data.push({"key":key++, "substep":this.$t('guide.text_content['+i+'].title_text'), "isParent": true });
+
+          var j;
+          for(j=0; j < this.substeps[i]; j++){
+            data.push({
+              "key": key++,
+              "substep": this.$t('guide.text_content['+i+'].subheader_text['+j+']'), 
+              "comment": this.panel_comment[i][j],
+              "selected": this.panel_select[i][j],
+              "parent": parent,
+              "isParent": false,
+            });
+            
+          }
+        }
+        this.setDiagramData(data);
+        this.scrollToTop();
+        this.$router.push('/mobile/summary');
+      },
   },
 };
 </script>

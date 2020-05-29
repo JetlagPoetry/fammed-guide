@@ -24,7 +24,7 @@
             v-model="group_name"
           ></v-text-field>
         </div>  
-        <div>
+        <div v-show="!is_mobile">
           <h2>{{$t('summary.title_logo')}}</h2>
           <input type="file" @change="uploadImage($event)">
           <canvas id="logo_canvas"></canvas>
@@ -62,8 +62,8 @@ export default {
 
   computed:{
     ...mapState([
+      'is_mobile',
       'diagram_data',
-      'test',
       'diagram_height',
       'diagram_width',
       'diagram_title'])
@@ -79,7 +79,7 @@ export default {
     ]),
 
     toGuidePage() {
-      this.setCurrentStep(1);
+      this.setStepperStep(1);
       this.$router.push('/guide');
     },
 
