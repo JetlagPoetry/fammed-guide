@@ -1,37 +1,27 @@
 <template>
   <v-container>
-    <v-row justify="center">
-      <div class="mt-6 px-12 mx-6" style="width:90%; max-width:1400px">
-        <div class="d-flex justify-content-start my-4" style="width:100%">
-          <v-btn text large color="primary" class="mx-2" @click="toGuidePage()">
-              <v-icon left color="primary">mdi-arrow-left</v-icon>
-              {{$t('summary.btn_modify')}}
-          </v-btn>
-          <v-spacer></v-spacer>
-          <v-btn text large color="primary"  @click="generateImages()">
-              {{$t('summary.btn_download')}}
-              <v-icon right color="primary">mdi-arrow-right</v-icon>
-          </v-btn>
-        </div>
-        <div 
-          class="mr-12"
-          style="width:25%; min-width:220px">
-          <h2>{{$t('summary.title_header')}}</h2>
-          <v-text-field
-            class="my-12 mx-2"
-            dense
-            label="Group name"
-            v-model="group_name"
-          ></v-text-field>
-        </div>  
-        <div v-show="!is_mobile">
+    <v-row style="text-align: center;">
+      <div style="width:95vw; margin-left:auto; margin-right:auto">
+        <v-btn large color="primary" class="mx-4 my-2" style="width:80vw" @click="toGuide()">
+          <v-icon left color="#fff">mdi-arrow-left</v-icon>
+          {{$t('summary.btn_modify')}}
+        </v-btn>
+        <v-btn large color="primary" class="mx-4 my-2" style="width:80vw" @click="generateImages()">
+          {{$t('summary.btn_download')}}
+          <v-icon right color="#fff">mdi-arrow-right</v-icon>
+        </v-btn>
+        <v-text-field
+          class="my-4 mx-4"
+          :label="$t('summary.title_header')"
+          single-line
+          v-model="group_name"
+        ></v-text-field>
+        <div v-show="false">
           <h2>{{$t('summary.title_logo')}}</h2>
-          <input type="file" @change="uploadImage($event)">
           <canvas id="logo_canvas"></canvas>
         </div>
-        <h2 class="my-4">{{$t('summary.title_summary')}}</h2>
-
-        <TreeDiagram class="mx-6" ref="diag" v-bind:model-data="diagram_data" style="background-color: #fff; width: 100%;"></TreeDiagram>
+        <h2 class="my-4 mx-4" style="text-align: left;">{{$t('summary.title_summary')}}</h2>
+        <TreeDiagram ref="diag" v-bind:model-data="diagram_data" style="background-color: #fff; width: 100%;"></TreeDiagram>
       </div>
     </v-row>
   </v-container>
@@ -41,7 +31,7 @@
 import jsPDF from 'jspdf'
 import $ from 'jquery'
 import go from 'gojs'
-import TreeDiagram from './TreeDiagram.vue'
+import TreeDiagram from '../desktop/TreeDiagram.vue'
 import {mapState, mapMutations} from 'vuex'
 export default {
   name: 'Summary',
@@ -51,7 +41,6 @@ export default {
   },
 
   data: () => ({
-    // image: require("../../assets/logo.png"),
     group_name: "",
     prefix:"OPR plan",
     logo_default: require('../../assets/logo.png'),
@@ -75,24 +64,12 @@ export default {
   
   methods: {
     ...mapMutations([
-      'setStepperStep',
+      'setListStep',
     ]),
 
-    toGuidePage() {
-      this.setStepperStep(1);
-      this.$router.push('/guide');
-    },
-
-    uploadImage(e){
-      var files = e.target.files || e.dataTransfer.files;
-      if (!files.length)
-        return;
-      var reader = new FileReader();
-      var self = this;
-      reader.onload = (e) => {
-        this.drawImage(self, e.target.result);
-      };
-      reader.readAsDataURL(files[0]);
+    toGuide() {
+      this.setListStep(0);
+      this.$router.push('/mobile/guide');
     },
 
     drawImage(self, image_src) {

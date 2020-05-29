@@ -2,7 +2,7 @@
   <v-container fluid style="padding:0; margin:0">
     <v-parallax
       style="background: linear-gradient(to right bottom, rgba(240,243,189,1) 0%, rgba(0,168,150,1) 49%, rgba(5,102,141,1) 100%);height: 100vh;">
-      <v-col class="text-center" cols="12">
+      <v-col class="text-center">
         <h1 class="my-8 head1" >OPR PLAN</h1>
         <div v-html="$t('home.text_desc')"></div>
         <v-btn multi-line class="my-4" outlined color="#fff" @click="toGuide()">

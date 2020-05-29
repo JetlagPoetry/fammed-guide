@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import {mapState, mapMutations} from 'vuex'
 import go from 'gojs';
 export default {
 
@@ -15,10 +15,16 @@ export default {
     roundedRectangleParams: '',
   }),
 
+  computed:{
+    ...mapState([
+      'is_mobile'])
+  },
+
   props: ["modelData"],
 
   mounted: function() {
     let $ = go.GraphObject.make;
+    var is_mobile = this.is_mobile;
     this.roundedRectangleParams = {
       parameter1: 2,
       spot1: go.Spot.TopLeft, spot2: go.Spot.BottomRight
@@ -26,16 +32,17 @@ export default {
     var myDiagram = $(go.Diagram, this.$el,
 
       {
-        initialDocumentSpot: go.Spot.TopCenter,
-        initialViewportSpot: go.Spot.TopCenter,
-        hasVerticalScrollbar:false,
+        initialDocumentSpot: is_mobile? go.Spot.LeftCenter:go.Spot.TopCenter,
+        initialViewportSpot: is_mobile? go.Spot.LeftCenter:go.Spot.TopCenter,
+        hasVerticalScrollbar: false,
         padding: new go.Margin(56,0,56,0),
         isReadOnly: true,
         "ViewportBoundsChanged": function() {
-          myDiagram.allowHorizontalScroll = false;
+          myDiagram.allowHorizontalScroll = is_mobile;
           myDiagram.allowVerticalScroll = false;
         },
         "InitialLayoutCompleted": this.loadDiagramProperties,
+        "panningTool.isEnabled": is_mobile,
         layout:
           $(go.TreeLayout, 
             {
@@ -48,10 +55,9 @@ export default {
               layerSpacingParentOverlap: 1,
               arrangementSpacing: new go.Size(0,50),
               portSpot: new go.Spot(0.001, 1, 20, 0),
-              childPortSpot: go.Spot.Left
+              childPortSpot: go.Spot.Left,
             })
       });
-    myDiagram.toolManager.panningTool.isEnabled = false;
 
     myDiagram.nodeTemplate =
         $(go.Node, "Auto",
