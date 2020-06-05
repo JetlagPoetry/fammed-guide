@@ -1,5 +1,9 @@
-.head1{
-    font-size: 38px;
+#app {
+    font-family: "Arial", Geneva, sans-serif
+}
+
+.home-title{
+    font-size: 44px;
 }
 
 .input-title {

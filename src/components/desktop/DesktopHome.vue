@@ -2,25 +2,23 @@
   <v-container fluid style="padding:0; margin:0">
     <v-parallax
       style="background: linear-gradient(to right bottom, rgba(240,243,189,1) 0%, rgba(0,168,150,1) 49%, rgba(5,102,141,1) 100%);height: 90vh; min-height:600px"><!--background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)-->
-          <v-row
-            align="center"
-            justify="center"
-          >
-          <v-col class="text-center pb-12" cols="12">
-            <h1 class="mb-8 head1" >{{$t('home.text_title')}}</h1>
-            <div v-html="$t('home.text_desc')"></div>
-            <v-btn class="my-6" outlined x-large color="#fff" @click="toGuidePage(1)">
-              {{$t('home.btn_customize')}}<v-icon right>mdi-arrow-right</v-icon> 
-            </v-btn>
-            <v-btn class="my-6" outlined x-large color="#fff" :href="require('../../assets/guide.pdf')" download="OPR_guide.pdf">
+      <div class="container">
+        <div class="row" style="">
+          <div class="mx-auto text-center col-md-11" style="">
+            <h1 class="mb-8 home-title" >{{$t('home.text_title')}}</h1>
+            <div class="mx-12">{{$t('home.text_desc')}}></div>
+            <v-btn class="my-6 mx-2" outlined x-large color="#fff" :href="require('../../assets/guide.pdf')" download="OPR_guide.pdf">
               download my resume
             </v-btn>
-            <v-btn class="my-6" outlined x-large color="#fff" :href="require('../../assets/diagram.pdf')" download="OPR_diagram.pdf">
+            <v-btn class="my-6 mx-2" outlined x-large color="#fff" :href="require('../../assets/diagram.pdf')" download="OPR_diagram.pdf">
               Export all recommendations 
             </v-btn>
-            
-          </v-col>
-        </v-row>
+            <v-btn class="my-4" outlined x-large color="#fff" @click="toGuidePage(1)">
+              {{$t('home.btn_customize')}}<v-icon right>mdi-arrow-right</v-icon> 
+            </v-btn>
+          </div>
+        </div>
+      </div>
     </v-parallax>
 
     <div class="container">
@@ -38,9 +36,7 @@
         </div>
       </div>
     </div>
-    <v-footer
-      padless
-    >
+    <v-footer padless>
       <v-card
         flat
         tile

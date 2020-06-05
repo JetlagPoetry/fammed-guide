@@ -10,17 +10,17 @@
   },
   "home":{
     "text_title":"ORGANIZATIONAL PARTICIPATORY RESEARCH Practice Guide",
-    "text_desc":"<span class='subheading'>Available in French and English , this guide provides recommendations to help all stakeholders </span><br/><span class='subheading'>(researchers, clinicians, managers and patient partners) to implement a participatory research</span><br/> <span class='subheading'>  project that aims to improve practices in one (or more) organization (s) of health.</span>",
+    "text_desc":"Research shows that OPR is a means for managers, professionals and other employees to collaborate with researchers to effect changes they desire within the organization where they work.Research shows that OPR can lead to a variety of benefits for the organization and the people who work there over and above the changes sought by the OPR.How do you ensure the success of your OPR project and the chances of it leading to extra benefits?This tool is designed to help you achieve just that by planning your OPR according to 26 research-based recommendations that will help you1. Form your OPR working group and establish a work processes (hyperlink to section 1)2. Collectively establish objectives, analyze data and determine how to use your OPR results (hyperlink to section 2)3. Adapt the OPR processes to the needs of the working group members (hyperlink to section 3), and4. Collectively ensure the development and nurturing of the relationships within the working group (hyperlink to section 4)This tool is organized according to these 4 groups of recommendations. In each section, the recommendations are listed and explained. To build your tailored OPR plan, you can select the recommendations use intend to implement, add details pertaining to your specific project and export your plan (PDF) to share with your OPR working group and other stakeholders. Why not build your OPR plan with your working group?We welcome your feedback on this tool.",
     "btn_customize":"Read the guide & Build your OPR plan",
     "btn_download_diagram":"Export all recommendations",
     "btn_download_guide":"Download PRO guide"
   },
   "guide":{
     "text_step":[
-      "FORM AN OPR WORKING GROUP AND COLLECTIVELY ESTABLISH WORK PROCESSES",
-      "COLLECTIVELY ESTABLISH OBJECTIVES, ANALYZE DATA AND DETERMINE HOW TO USE OPR RESULTS",
-      "ADAPT THE OPR PROCESSES TO THE NEEDS OF THE WORKING GROUP MEMBERS",
-      "COLLECTIVELY ENSURE THE DEVELOPMENT AND NURTURING OF RELATIONSHIPS WITHIN THE WORKING GROUP"
+      "Form your working group",
+      "Collectively plan and conduct your study",
+      "Adapt to working group member",
+      "Collectively nurture relationships"
     ],
     "btn_next":"Next",
     "btn_previous":"Previous",
@@ -35,7 +35,7 @@
     "text_content":[
       {
         "title_text":"1. FORM AN OPR WORKING GROUP AND COLLECTIVELY ESTABLISH WORK PROCESSES",
-        "intro_text":"Organizational Participatory Research (OPR) is carried out by a core working group of health organization and academic researcher stakeholders. Health organization stakeholders participating in the working group ought to be representative of all organization stakeholder groups. That is, representatives of those who will need to implement the changes addressed by the OPR, as well as representatives of those who will be affected by the changes (and their potential effects), should participate in research-related decisions, with the academic researcher(s), throughout the OPR. Literature reviews suggest health organization stakeholders’ participation in the decisionmaking may take the form of being consulted by the academic researcher(s) or co-constructing the OPR with the academic researcher(s) (Bush et al., 2015; Munn-Giddings, McVicar, & Smith, 2008). The decision regarding extent of participation should be that of the working group.",
+        "intro_text":"Organizational Participatory Research (OPR) is carried out by a core working group of health organization and academic researcher stakeholders. Health organization stakeholders participating in the working group ought to be representative of all organization stakeholder groups. That is, representatives of those who will need to implement the changes addressed by the OPR, as well as representatives of those who will be affected by the changes (and their potential effects), should participate in research-related decisions, with the academic researcher(s), throughout the OPR. Literature reviews suggest health organization stakeholders’ participation in the decisionmaking may take the form of being consulted by the academic researcher(s) or co-constructing the OPR with the academic researcher(s) (<a href='https://www.sciencedirect.com/science/article/pii/S0149718918301459'>Bush et al., 2015; Munn-Giddings, McVicar, & Smith, 2008</a>). The decision regarding extent of participation should be that of the working group.",
 
         "subheader_text":[
           "1.1. RECRUIT STAKEHOLDER REPRESENTATIVES KNOWN TO WORK WELL IN GROUPS.",

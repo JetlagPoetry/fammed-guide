@@ -1,6 +1,6 @@
 <template>
   <!-- <v-content class="px-12"> -->
-  <div class="mt-6 px-6 mx-auto" style="width:95%; max-width:1400px" >
+  <div class="mt-6 px-6 mx-auto"  style="width:95%; max-width:1400px" >
     <v-container style="width:100%">
       <v-stepper
         :value="stepper_current_step"
