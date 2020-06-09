@@ -85,11 +85,11 @@ export default new Vuex.Store({
 		setDiagramTitle(state, title){
 			Vue.set(state, 'diagram_title', title);
 		},
-		// set desktop stepper step
+		// set desktop stepper step, start from 1.
 		setStepperStep(state, step){
 			Vue.set(state, 'stepper_current_step', step);
 		},
-		// set mobile list step
+		// set mobile list step, start from 0.
 		setListStep(state, step){
 			Vue.set(state, 'list_current_step', step);
 		},

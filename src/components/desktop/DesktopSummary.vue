@@ -20,8 +20,8 @@
           <v-text-field
             class="my-12 mx-2"
             dense
-            label="Group name"
-            v-model="group_name"
+            label="Add pdf title here"
+            v-model="pdf_title"
           ></v-text-field>
         </div>  
         <div>
@@ -51,13 +51,10 @@ export default {
   },
 
   data: () => ({
-    // image: require("../../assets/logo.png"),
-    group_name: "",
-    prefix:"OPR plan",
-    logo_default: require('../../assets/logo.png'),
-    logo_data: "",
-    logo_width: 20,
-    logo_height: 20
+    pdf_title: "",
+    logo_data: null,
+    logo_width: 1,
+    logo_height: 1,
   }),
 
   computed:{
@@ -69,7 +66,7 @@ export default {
   },
 
   mounted: function() {
-    this.drawImage(this, this.logo_default);
+    this.pdf_title = this.$t('summary.default_pdf_title');
   },
   
   methods: {
@@ -132,17 +129,18 @@ export default {
       var position = 40;
 
       //print logo
-      var logo_height_inpdf = 20;
-      var logo_width_inpdf = logo_height_inpdf * this.logo_width / this.logo_height;
-      doc.addImage(this.logo_data, "JPEG", 20, 2, logo_width_inpdf, logo_height_inpdf);
+      if(this.logo_data!==null){
+        var logo_height_inpdf = 20;
+        var logo_width_inpdf = logo_height_inpdf * this.logo_width / this.logo_height;
+        doc.addImage(this.logo_data, "JPEG", 20, 2, logo_width_inpdf, logo_height_inpdf);
+      }
 
       //print title
-      var title = this.prefix+(this.group_name===""?'':' - ')+this.group_name;
-      var header = doc.splitTextToSize(title, 100)
+      var title = doc.splitTextToSize(this.pdf_title, 100)
       doc.setFontType("bold"); 
-      doc.setFont("times");
+      doc.setFont("arial");
       doc.setFontSize(24);
-      doc.text(30+logo_width_inpdf, 15, header);
+      doc.text(this.logo_data===null?30:(30+logo_width_inpdf), 15, title);
 
       //print diagram
       doc.addImage(pageData, 'PNG', margin, position, imgWidth, imgHeight);

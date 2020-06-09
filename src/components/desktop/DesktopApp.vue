@@ -29,34 +29,10 @@
           <span class="mr-2">{{$t('nav.btn_home')}}</span>
         </v-btn>
         <v-btn
-          @click="toGuideSection(1)"
+          @click="toGuidePage()"
           text
         >
           <span class="mr-2">{{$t('nav.btn_guide')}}</span>
-        </v-btn>
-        <v-btn
-          @click="toGuideSection(1)"
-          text
-        >
-          <span class="mr-2">{{$t('nav.btn_sec1')}}</span>
-        </v-btn>
-        <v-btn
-          @click="toGuideSection(2)"
-          text
-        >
-          <span class="mr-2">{{$t('nav.btn_sec2')}}</span>
-        </v-btn>
-        <v-btn
-          @click="toGuideSection(3)"
-          text
-        >
-          <span class="mr-2">{{$t('nav.btn_sec3')}}</span>
-        </v-btn>
-        <v-btn
-          @click="toGuideSection(4)"
-          text
-        >
-          <span class="mr-2">{{$t('nav.btn_sec4')}}</span>
         </v-btn>
         <v-btn
           @click="changeLanguage()"
@@ -109,11 +85,7 @@ export default {
       },
 
       toGuidePage() {
-        this.$router.push('/guide').catch(err => err);
-      },
-
-      toGuideSection(step){
-        this.setStepperStep(step);
+        this.setStepperStep(1);
         this.$router.push('/guide').catch(err => err);
       },
 

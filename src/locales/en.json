@@ -17,10 +17,10 @@
   },
   "guide":{
     "text_step":[
-      "Form your working group",
-      "Collectively plan and conduct your study",
-      "Adapt to working group member",
-      "Collectively nurture relationships"
+      "FORM AN OPR WORKING GROUP AND COLLECTIVELY ESTABLISH WORK PROCESSES",
+      "COLLECTIVELY ESTABLISH OBJECTIVES, ANALYZE DATA AND DETERMINE HOW TO USE OPR RESULTS",
+      "ADAPT THE OPR PROCESSES TO THE NEEDS OF THE WORKING GROUP MEMBERS",
+      "COLLECTIVELY ENSURE THE DEVELOPMENT AND NURTURING OF RELATIONSHIPS WITHIN THE WORKING GROUP"
     ],
     "btn_next":"Next",
     "btn_previous":"Previous",
@@ -125,6 +125,7 @@
     "btn_download":"Download Your PDF",
     "title_summary":"Summary",
     "title_header":"Add your group name",
-    "title_logo":"Upload your logo"
+    "title_logo":"Upload your logo",
+    "default_pdf_title":"ORGANIZATIONAL PARTICIPATORY RESEARCH Practice Guide"
   }
 }
