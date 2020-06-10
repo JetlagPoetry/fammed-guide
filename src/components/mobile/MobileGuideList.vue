@@ -1,55 +1,6 @@
 <template>
   <v-container>
-    <h2 class="my-4">{{$t('guide.text_content['+list_current_step+'].title_text')}}</h2>
-    <div v-html="$t('guide.text_content['+list_current_step+'].intro_text')" class="my-4"></div>
-      <v-btn v-if="btn_show_unselect[list_current_step]" color="primary" class="mx-2" @click="selectAllPanel(list_current_step)">
-        <v-icon left medium color="#fff">mdi-close</v-icon>
-          {{$t('guide.btn_unselectAll')}}
-      </v-btn>
-      <v-btn v-else color="primary" class="mx-2" @click="selectAllPanel(list_current_step)">
-        <v-icon left medium color="#fff">mdi-check</v-icon>
-          {{$t('guide.btn_selectAll')}}
-      </v-btn>
-    <v-row>
-      <v-col
-        v-for="(item,step_no) in substeps[list_current_step]"
-        :key="step_no"
-        cols="12">
-        <v-card 
-          elevation="4" 
-          :dark="panel_select[list_current_step][step_no]"
-          @click="togglePanel({step:list_current_step, substep:step_no})"
-           >
-          <div class="flex-no-wrap justify-space-between">
-            <div>
-              <v-card-title
-                style="line-height:1.2; font-size:1.1rem">
-                {{$t('guide.text_content['+list_current_step+'].subheader_text['+step_no+']')}}
-              </v-card-title>
-              <v-card-subtitle
-                class="mx-2 my-1 py-0"
-                style="line-height:1.2; font-size:0.9rem"
-                v-html="$t('guide.text_content['+list_current_step+'].guide_text['+step_no+']')">
-              </v-card-subtitle >
-              <div class="mt-4 mb-0 mx-4">
-                <v-textarea
-                  :label="$t('guide.txt_instrHint')"
-                  outlined
-                  auto-grow
-                  @click.native="check($event)"
-                  rows="4"
-                  row-height="16"
-                  v-model="panel_comment[list_current_step][step_no]"
-                  style="font-size:0.95rem"
-                ></v-textarea>
-              </div>
-              <v-icon class="mx-4 my-2" v-if="panel_select[list_current_step][step_no]">mdi-checkbox-marked-circle</v-icon>
-            </div>
-            
-          </div>
-        </v-card>
-      </v-col>
-    </v-row>
+    <GuideSection :section="list_current_step"></GuideSection>
     <div class="d-flex justify-content-start my-4" style="width:100%">
       <v-spacer></v-spacer>
       <v-btn
@@ -86,10 +37,12 @@
 
 <script>
 import { mapState, mapMutations} from 'vuex'
+import GuideSection from '../common/GuideSection.vue'
 export default {
   name: 'List1',
   inject: ['reload'],
   components: {
+    GuideSection
   },
 
   data: () => ({

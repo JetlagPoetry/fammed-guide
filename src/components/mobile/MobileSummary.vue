@@ -31,7 +31,7 @@
 import jsPDF from 'jspdf'
 import $ from 'jquery'
 import go from 'gojs'
-import TreeDiagram from '../desktop/TreeDiagram.vue'
+import TreeDiagram from '../common/TreeDiagram.vue'
 import {mapState, mapMutations} from 'vuex'
 export default {
   name: 'Summary',
