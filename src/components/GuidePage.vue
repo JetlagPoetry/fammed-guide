@@ -1,6 +1,7 @@
 <template>
-  <div class="mt-6 px-6 mx-auto"  style="width:95%; max-width:1400px" >
-    <v-container style="width:100%">
+  <div>
+  <div class="mt-6 px-6 mx-auto"  style="width:95%; max-width:1400px" v-if="!is_mobile">
+    <v-container style="width:100%" >
       <v-stepper
         :value="stepper_current_step"
         alt-labels 
@@ -60,11 +61,46 @@
       </v-stepper>
     </v-container>
   </div>
+  <v-container v-else>
+      <GuideSection :section="stepper_current_step"></GuideSection>
+      <div class="d-flex justify-content-start my-4" style="width:100%">
+        <v-spacer></v-spacer>
+        <v-btn
+          v-if="stepper_current_step>0"
+          color="primary"
+          @click="lastStep(stepper_current_step)"
+          class="mx-2"
+        >
+          <v-icon left color="white">mdi-arrow-left</v-icon>
+          {{$t('guide.btn_previous')}}
+        </v-btn>
+
+        <v-btn
+          v-if="stepper_current_step<3"
+          color="primary"
+          @click="nextStep(stepper_current_step)"
+          class="mx-2"
+        >
+          {{$t('guide.btn_next')}}
+          <v-icon right color="white">mdi-arrow-right</v-icon>
+        </v-btn>
+        <v-btn
+          v-if="stepper_current_step==3"
+          color="primary"
+          @click="toSummary()"
+          class="mx-2"
+        >
+          {{$t('guide.btn_export')}}
+          <v-icon right color="white">mdi-arrow-right</v-icon>
+        </v-btn>
+      </div>
+    </v-container>
+  </div>
 </template>
 
 <script>
 import {mapState, mapMutations} from 'vuex'
-import GuideSection from '../common/GuideSection.vue'
+import GuideSection from './GuideSection.vue'
 export default {
   name: 'DesktopGuide',
 
@@ -82,10 +118,11 @@ export default {
 
   computed:{
     ...mapState([
+      'is_mobile',
       'substeps',
       'panel_comment',
       'panel_select',
-      'stepper_current_step'
+      'stepper_current_step',
     ]),
   },
 
@@ -98,9 +135,8 @@ export default {
 
   methods: {
     ...mapMutations([
-        'selectPanel',
         'setDiagramData',
-        'setStepperStep'
+        'setStepperStep',
       ]),
 
     toSummary () {
@@ -131,18 +167,25 @@ export default {
 
       nextStep (n) {
         this.setStepperStep(n+1);
+        this.toTop();
       },
 
       lastStep (n) {
         this.setStepperStep(n-1);
+        this.toTop();
       },
 
       check: function(e) {
         e.cancelBubble = true;
       },
+
       itemIsTrue(value){
         return value;
-      }
+      },
+
+      toTop() {
+        window.scrollTo(0,0);
+      },
     },
 };
 </script>

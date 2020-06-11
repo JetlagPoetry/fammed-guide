@@ -30,17 +30,12 @@ export default new Vuex.Store({
 		diagram_title: "",
 		diagram_width: 0,
 		diagram_height: 0,
-		stepper_current_step: 1,
-		list_current_step: 0,
+		stepper_current_step: 1
 	},
 	mutations: {
 		// Set if the device is mobile or desktop
 		setMobileDevice(state, isMobile){
 			Vue.set(state, 'is_mobile', isMobile);
-		},
-		// Select or unselect a single recommendation at data.step.substep
-		togglePanel(state, data){
-			Vue.set(state.panel_select[data.step], data.substep, !state.panel_select[data.step][data.substep]);
 		},
 		// Select a single recommendation at data.step.substep
 		selectPanel(state, data){
@@ -85,13 +80,9 @@ export default new Vuex.Store({
 		setDiagramTitle(state, title){
 			Vue.set(state, 'diagram_title', title);
 		},
-		// set desktop stepper step, start from 1.
+		// set stepper step, start from 0.
 		setStepperStep(state, step){
 			Vue.set(state, 'stepper_current_step', step);
-		},
-		// set mobile list step, start from 0.
-		setListStep(state, step){
-			Vue.set(state, 'list_current_step', step);
 		},
 	},
 	actions: {},

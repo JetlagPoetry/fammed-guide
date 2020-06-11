@@ -7,10 +7,10 @@
           <div class="mx-auto text-center col-md-11" style="">
             <h1 class="mb-8 home-title" >{{$t('home.text_title')}}</h1>
             <div class="mx-12">{{$t('home.text_desc')}}></div>
-            <v-btn class="my-6 mx-2" outlined x-large color="#fff" :href="require('../../assets/guide.pdf')" download="OPR_guide.pdf">
+            <v-btn class="my-6 mx-2" outlined x-large color="#fff" :href="require('../assets/guide.pdf')" download="OPR_guide.pdf">
               download my resume
             </v-btn>
-            <v-btn class="my-6 mx-2" outlined x-large color="#fff" :href="require('../../assets/diagram.pdf')" download="OPR_diagram.pdf">
+            <v-btn class="my-6 mx-2" outlined x-large color="#fff" :href="require('../assets/diagram.pdf')" download="OPR_diagram.pdf">
               Export all recommendations 
             </v-btn>
             <v-btn class="my-4" outlined x-large color="#fff" @click="toGuidePage(1)">
@@ -94,4 +94,4 @@ export default {
 };
 </script>
 
-<style src="../../css/mycss.css"/>
+<style src="../css/mycss.css"/>

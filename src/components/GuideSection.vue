@@ -86,7 +86,6 @@ export default {
       'panel_expand',
       'btn_show_collapse',
       'btn_show_unselect',
-      'stepper_current_step'
     ]),
   },
 
