@@ -10,10 +10,10 @@
             <v-btn class="my-6 mx-2" outlined x-large color="#fff" :href="require('../assets/guide.pdf')" download="OPR_guide.pdf">
               download my resume
             </v-btn>
-            <v-btn class="my-6 mx-2" outlined x-large color="#fff" :href="require('../assets/diagram.pdf')" download="OPR_diagram.pdf">
+            <v-btn class="my-6 mx-2" outlined x-large color="#fff" @click="exportAll">
               Export all recommendations 
             </v-btn>
-            <v-btn class="my-4" outlined x-large color="#fff" @click="toGuidePage(1)">
+            <v-btn class="my-4" outlined x-large color="#fff" @click="toGuidePage()">
               {{$t('home.btn_customize')}}<v-icon right>mdi-arrow-right</v-icon> 
             </v-btn>
           </div>
@@ -84,11 +84,19 @@ export default {
 
   methods: {
     ...mapMutations([
-      'setStepperStep'
+      'setStepperStep',
+      'setDiagramData',
+      'selectAllPanel'
     ]),
-    toGuidePage(step) {
-      this.setStepperStep(step);
+    toGuidePage() {
+      this.setStepperStep(0);
       this.$router.push('/guide');
+    },
+
+    exportAll(){
+      this.selectAllPanel();
+      this.setDiagramData();
+      this.$router.push('/summary');
     },
   }
 };

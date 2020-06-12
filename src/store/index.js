@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from "vuex-persistedstate";
+import i18n from '../i18n';
 
 Vue.use(Vuex);
 
@@ -42,11 +43,18 @@ export default new Vuex.Store({
 			Vue.set(state.panel_select[data.step], data.substep, true);
 		},
 		// Select or unselect all recommendations in step n, based on btn_show_unselect[n]
-		selectAllPanel(state, n) {
+		toggleAllPanel(state, n) {
 			if(state.btn_show_unselect[n]){
 				Vue.set(state.panel_select, n, new Array(state.substeps[n]).fill(false));
 			}else{
 				Vue.set(state.panel_select, n, new Array(state.substeps[n]).fill(true));
+			}
+		},
+		// Select all recommendations in all chapters
+		selectAllPanel(state){
+			var i;
+			for(i=0; i<4; i++){
+				Vue.set(state.panel_select, i, new Array(state.substeps[i]).fill(true));
 			}
 		},
 		// Expand or fold all recommendations in step n, based on btn_show_collapse[n]
@@ -68,7 +76,27 @@ export default new Vuex.Store({
 			Vue.set(state.btn_show_collapse, data.n, data.toCollapse);
 		},
 		// Save the diagram data using map.
-		setDiagramData(state, data) {
+		setDiagramData(state) {
+			var data = [];
+			var i;
+			var key=0;
+			for(i=0; i<4; i++){
+
+				var parent = key;
+				data.push({"key":key++, "substep":i18n.t('guide.text_content['+i+'].title_text'), "isParent": true });
+
+				var j;
+				for(j=0; j < state.substeps[i]; j++){
+					data.push({
+						"key": key++,
+						"substep": i18n.t('guide.text_content['+i+'].subheader_text['+j+']'), 
+						"comment": state.panel_comment[i][j],
+						"selected": state.panel_select[i][j],
+						"parent": parent,
+						"isParent": false,
+					});
+				}
+			}
 			Vue.set(state, 'diagram_data', data);
 		},
 		// Save the diagram size.

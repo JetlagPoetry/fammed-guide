@@ -14,11 +14,11 @@
               <v-icon left medium color="#fff">mdi-plus</v-icon>
               {{$t('guide.btn_expandAll')}}
           </v-btn>
-          <v-btn v-if="btn_show_unselect[section]" color="primary" class="mx-2" @click="selectAllPanel(section)">
+          <v-btn v-if="btn_show_unselect[section]" color="primary" class="mx-2" @click="toggleAllPanel(section)">
             <v-icon left medium color="#fff">mdi-close</v-icon>
               {{$t('guide.btn_unselectAll')}}
           </v-btn>
-          <v-btn v-else color="primary" class="mx-2" @click="selectAllPanel(section)">
+          <v-btn v-else color="primary" class="mx-2" @click="toggleAllPanel(section)">
             <v-icon left medium color="#fff">mdi-check</v-icon>
               {{$t('guide.btn_selectAll')}}
           </v-btn>
@@ -61,6 +61,7 @@
           </v-expansion-panel>
         </v-expansion-panels>
       </v-row>
+
   </v-card>
 </template>
 
@@ -129,52 +130,31 @@ export default {
         'selectPanel',
         'setDiagramData',
         'expandAllPanel',
-        'selectAllPanel',
+        'toggleAllPanel',
         'switchBtnUnselect',
         'switchBtnCollapse',
         'setStepperStep'
       ]),
 
     toSummary () {
-        var data = [];
-        var i;
-        var key=0;
-        for(i=0; i<4; i++){
-
-          var parent = key;
-          data.push({"key":key++, "substep":this.$t('guide.text_content['+i+'].title_text'), "isParent": true });
-
-          var j;
-          for(j=0; j < this.substeps[i]; j++){
-            data.push({
-              "key": key++,
-              "substep": this.$t('guide.text_content['+i+'].subheader_text['+j+']'), 
-              "comment": this.panel_comment[i][j],
-              "selected": this.panel_select[i][j],
-              "parent": parent,
-              "isParent": false,
-            });
-            
-          }
-        }
-        this.setDiagramData(data);
-        this.$router.push('/summary');
-      },
-
-      nextStep (n) {
-        this.setStepperStep(n+1);
-      },
-
-      lastStep (n) {
-        this.setStepperStep(n-1);
-      },
-
-      check: function(e) {
-        e.cancelBubble = true;
-      },
-      itemIsTrue(value){
-        return value;
-      }
+      this.setDiagramData();
+      this.$router.push('/summary');
     },
+
+    nextStep (n) {
+      this.setStepperStep(n+1);
+    },
+
+    lastStep (n) {
+      this.setStepperStep(n-1);
+    },
+
+    check: function(e) {
+      e.cancelBubble = true;
+    },
+    itemIsTrue(value){
+      return value;
+    }
+  },
 };
 </script>

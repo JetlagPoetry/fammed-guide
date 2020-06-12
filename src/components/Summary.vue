@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <div class="mt-6 px-12 mx-6" style="width:90%; max-width:1400px">
-        <div class="d-flex justify-content-start my-4" style="width:100%">
+      <div id="sum-page-div">
+        <div class="d-flex justify-space-between my-4" style="flex-wrap:wrap">
           <v-btn text large color="primary" class="mx-2" @click="toGuidePage()">
               <v-icon left color="primary">mdi-arrow-left</v-icon>
               {{$t('summary.btn_modify')}}
@@ -13,25 +13,26 @@
               <v-icon right color="primary">mdi-arrow-right</v-icon>
           </v-btn>
         </div>
-        <div 
-          class="mr-12"
-          style="width:25%; min-width:220px">
-          <h2>{{$t('summary.title_header')}}</h2>
-          <v-text-field
-            class="my-12 mx-2"
-            dense
-            label="Add pdf title here"
-            v-model="pdf_title"
-          ></v-text-field>
-        </div>  
-        <div>
-          <h2>{{$t('summary.title_logo')}}</h2>
-          <input type="file" @change="uploadImage($event)">
-          <canvas id="logo_canvas"></canvas>
+        <div class="d-flex justify-space-between my-4" style="flex-wrap:wrap">
+          <div
+            id="sum-title-div"
+            class="mr-2">
+            <h2>{{$t('summary.title_header')}}</h2>
+            <v-text-field
+              class="my-12 mx-2"
+              dense
+              label="Add pdf title here"
+              v-model="pdf_title"
+            ></v-text-field>
+          </div>  
+          <div>
+            <h2>{{$t('summary.title_logo')}}</h2>
+            <input type="file" @change="uploadImage($event)">
+            <canvas id="logo_canvas"></canvas>
+          </div>
         </div>
         <h2 class="my-4">{{$t('summary.title_summary')}}</h2>
-
-        <TreeDiagram class="mx-6" ref="diag" v-bind:model-data="diagram_data" style="background-color: #fff; width: 100%;"></TreeDiagram>
+        <TreeDiagram id="sum-diagram" ref="diag" v-bind:model-data="diagram_data" style=""></TreeDiagram>
       </div>
     </v-row>
   </v-container>
@@ -75,7 +76,7 @@ export default {
     ]),
 
     toGuidePage() {
-      this.setStepperStep(1);
+      this.setStepperStep(0);
       this.$router.push('/guide');
     },
 

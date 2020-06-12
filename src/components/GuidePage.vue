@@ -3,7 +3,7 @@
   <div class="mt-6 px-6 mx-auto"  style="width:95%; max-width:1400px" v-if="!is_mobile">
     <v-container style="width:100%" >
       <v-stepper
-        :value="stepper_current_step"
+        :value="stepper_current_step+1"
         alt-labels 
         non-linear
         style="width:100%">
@@ -34,7 +34,7 @@
             <v-btn
               v-if="section>0"
               color="primary"
-              @click="lastStep(section+1)"
+              @click="lastStep(section)"
               class="mx-2"
             >
               {{$t('guide.btn_previous')}}
@@ -43,7 +43,7 @@
             <v-btn
               v-if="section<3"
               color="primary"
-              @click="nextStep(section+1)"
+              @click="nextStep(section)"
               class="mx-2"
             >
               {{$t('guide.btn_next')}}
