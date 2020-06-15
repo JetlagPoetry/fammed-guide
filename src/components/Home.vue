@@ -1,23 +1,25 @@
 <template>
   <v-container fluid style="padding:0; margin:0">
     <v-parallax
-      src="bg.jpg" style="height:90vh; background-size: cover;min-height:100%; padding:0; margin:0"><!--background: linear-gradient(to right bottom, rgba(240,243,189,1) 0%, rgba(0,168,150,1) 49%, rgba(5,102,141,1) 100%);height: 90vh; min-height:600px-->
+      src="bg3.jpg" style="height:90vh; background-size: cover; padding:0; margin:0;">
+<!--       <v-parallax
+      style="background: linear-gradient(to right bottom, rgba(240,243,189,1) 0%, rgba(0,168,150,1) 49%, rgba(5,102,141,1) 100%);height: 100vh;"> -->
       <div class="container">
         <div class="row">
-          <div class="mx-auto text-center col-md-12" style="">
-            <h1 class="mb-8 mx-auto home-title col-md-10" >{{$t('home.text_title')}}</h1>
-            <div class="mx-auto my-0 col-md-6 home-desc">{{$t('home.text_desc')}}</div>
-            <ul class="my-0 mx-auto text-center col-md-4 home-item" style="list-style-type:none;">
+          <div class="mx-auto text-center col-md-12">
+            <h1 class="mb-8 mx-auto home-title col-md-10" v-if="!is_mobile">{{$t('home.text_title')}}</h1>
+            <div class="mx-auto my-0 col-8 home-desc">{{$t('home.text_desc')}}</div>
+            <ul class="my-0 mx-auto text-center col-md-8 home-item" style="list-style-type:none;">
               <li v-for="(i, index) in 3" :key="index">{{$t('home.text_list['+index+']')}}<v-icon small color="#fff">mdi-check-circle-outline</v-icon></li>
               <li @click="$vuetify.goTo('#div-opr', 'linear')" style="text-decoration: underline; ">{{$t('home.text_opr')}}</li>
             </ul>
-            <v-btn class="my-6 mx-2 " outlined x-large color="#fff" :href="require('../assets/guide.pdf')" download="OPR_guide.pdf">
+            <v-btn class="home-btn" :x-large="!is_mobile" outlined color="#fff" :href="require('../assets/guide.pdf')" download="OPR_guide.pdf">
               {{$t('home.btn_download_guide')}}
             </v-btn>
-            <v-btn class="my-6 mx-2" outlined x-large color="#fff" @click="exportAll">
+            <v-btn class="home-btn" :x-large="!is_mobile" outlined color="#fff" @click="exportAll">
               {{$t('home.btn_export_all')}}
             </v-btn>
-            <v-btn class="my-6 mx-2" outlined x-large color="#fff" @click="toGuidePage()">
+            <v-btn class="home-btn" :x-large="!is_mobile" outlined color="#fff" style="white-space:normal; overflow-wrap: normal" @click="toGuidePage()">
               {{$t('home.btn_customize')}}<v-icon right>mdi-arrow-right</v-icon> 
             </v-btn>
           </div>
@@ -39,10 +41,10 @@
     </div>
     <div class="py-12" id="div-template">
       <div class="row row-opr" >
-        <div class="col-md-6 col-lg-3 opr-desc mr-12">
+        <div class="col-md-6 col-lg-3 opr-desc mx-12">
           <img src="tree.PNG" style="height:30vh; min-height: 200px; border:5px" alt="PDF Template" > 
         </div>
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 ml-4">
           <h2 class="my-3"> 
             <b>{{$t('home.template_title')}}</b> 
           </h2>
@@ -83,11 +85,16 @@
   </v-container>
 </template>
 <script>
-import {mapMutations} from 'vuex'
+import {mapState, mapMutations} from 'vuex'
 export default {
   name: 'DesktopHome',
 
   components: {
+  },
+
+  computed:{
+    ...mapState([
+      'is_mobile',])
   },
 
   data: () => ({

@@ -29,7 +29,7 @@
             v-for="(item,substep) in substeps[section]"
             :key="substep"
             >
-            <v-expansion-panel-header class="py-4">
+            <v-expansion-panel-header class="panel-header py-2">
               <v-tooltip top>
                 <template v-slot:activator="{ on }">
                   <v-checkbox
