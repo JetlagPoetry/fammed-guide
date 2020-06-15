@@ -10,10 +10,18 @@
   },
   "home":{
     "text_title":"Guide sur la recherche participative organisationnelle (RPO)",
-    "text_desc":"<span class='subheading'>Disponible en français et en anglais,  ce guide fournit des recommandations pour aider toutes les parties prenantes </span><br/><span class='subheading'>(chercheurs, cliniciens, gestionnaires et patients partenaires) à mettre en œuvre un projet de recherche participative</span><br/> <span class='subheading'> qui vise à améliorer les pratiques dans une (ou des) organisation(s) de santé.</span>",
+    "text_desc":"A tool that helps build your tailored OPR plan",
+    "text_list":["select the recommendations use intend to implement","add details pertaining to your specific project","export your plan to share with your working group and other stakeholders"],
+    "text_opr":"What is OPR?",
     "btn_customize":"Read the guide & Build your OPR plan",
-    "btn_download_diagram":"Export all recommendations",
-    "btn_download_guide":"Download PRO guide"
+    "btn_export_all":"Export all recommendations",
+    "btn_download_guide":"Download PRO guide",
+    "opr_desc":"OPR is a means for managers, professionals and other employees to collaborate with researchers to effect changes they desire within the organization where they work. Research shows that OPR can lead to a variety of benefits for the organization and the people who work there over and above the changes sought by the OPR. How do you ensure the success of your OPR project and the chances of it leading to extra benefits? This tool is designed to help you achieve just that by planning your OPR according to 26 research-based recommendations that will help you. Why not build your OPR plan with your working group? We welcome your feedback on this tool.",
+    "opr_list_title":"This tool is organized according to these 4 groups of recommendations.",
+    "opr_list_item":["Form your OPR working group and establish a work processes","Collectively establish objectives, analyze data and determine how to use your OPR results","Adapt the OPR processes to the needs of the working group members","Collectively ensure the development and nurturing of the relationships within the working group"],
+    "template_title":"Take away your own research plan",
+    "template_content":"A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine."
+
   },
   "guide":{
     "text_step":[
