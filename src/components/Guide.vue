@@ -102,7 +102,7 @@
 import {mapState, mapMutations} from 'vuex'
 import GuideSection from './GuideSection.vue'
 export default {
-  name: 'DesktopGuide',
+  name: 'Guide',
 
   components: {
     GuideSection

@@ -39,6 +39,14 @@
         >
           <span class="mr-2">{{$t('nav.btn_guide')}}</span>
         </v-btn>
+        <!-- Nav button hide for mobile device-->
+        <v-btn
+          v-if="!is_mobile"
+          @click="toFeedbackPage"
+          text
+        >
+          <span class="mr-2">{{$t('nav.btn_feedback')}}</span>
+        </v-btn>
         <v-btn
           @click="changeLanguage"
           text
@@ -76,6 +84,9 @@
 
           <v-list-item @click="toGuideN(4)">
             <v-list-item-title>Chapter4</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="toFeedbackPage">
+            <v-list-item-title>Provide Feedback</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -128,6 +139,7 @@ export default {
   },
 
   mounted:function(){
+    //detect devices
     if(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)){
         this.setMobileDevice(true);
       } else {
@@ -141,21 +153,30 @@ export default {
         'setMobileDevice'
       ]),
 
+      //nav button click event
       toHomePage () {
         this.$router.push('/').catch(err => err);
       },
 
+      //nav button click event
       toGuidePage() {
-        this.setStepperStep(1);
+        this.setStepperStep(0);
         this.$router.push('/guide').catch(err => err);
       },
+      
+      //nav button click event
+      toFeedbackPage(){
+        this.$router.push('/feedback').catch(err => err);
+      },
 
+      //drawer button for mobile 
       toGuideN (n) {
         this.toTop();
         this.setStepperStep(n-1);
         this.$router.push('/guide').catch(err => err);
       },
 
+      //nav button for mobile&desktop
       changeLanguage(){
         if(this.$i18n.locale==='fr'){
           this.$i18n.locale='en';
@@ -164,12 +185,14 @@ export default {
         }
       },
 
+      // To show the scroll fab
       onScroll(e) {
         if (typeof window === 'undefined') return;
         const top = window.pageYOffset ||   e.target.scrollTop || 0;
         this.fab = top > 70;
       },
 
+      // For scroll to top fab
       toTop() {
         this.$vuetify.goTo(0);
       },

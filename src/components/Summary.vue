@@ -21,7 +21,7 @@
             <v-text-field
               class="my-12 mx-2"
               dense
-              label="Add pdf title here"
+              :label="$t('summary.title_header')"
               v-model="pdf_title"
             ></v-text-field>
           </div>  
@@ -45,7 +45,7 @@ import go from 'gojs'
 import TreeDiagram from './TreeDiagram.vue'
 import {mapState, mapMutations} from 'vuex'
 export default {
-  name: 'DesktopSummary',
+  name: 'Summary',
 
   components: {
     TreeDiagram,

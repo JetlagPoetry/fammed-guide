@@ -2,6 +2,7 @@
   "nav":{
     "btn_home":"HOME",
     "btn_guide":"GUIDE",
+    "btn_feedback":"FEEDBACK",
     "btn_lang":"FR",
     "btn_sec1":"SECTION 1",
     "btn_sec2":"SECTION 2",
@@ -13,7 +14,7 @@
     "text_desc":"A tool that helps build your tailored OPR plan",
     "text_list":["select the recommendations use intend to implement","add details pertaining to your specific project","export your plan to share with your working group and other stakeholders"],
     "text_opr":"What is OPR?",
-    "btn_customize":"Read the guide & &#x00A Build your OPR plan",
+    "btn_customize":"Build your OPR plan",
     "btn_export_all":"Export all recommendations",
     "btn_download_guide":"Download PRO guide",
     "opr_desc":"OPR is a means for managers, professionals and other employees to collaborate with researchers to effect changes they desire within the organization where they work. Research shows that OPR can lead to a variety of benefits for the organization and the people who work there over and above the changes sought by the OPR. How do you ensure the success of your OPR project and the chances of it leading to extra benefits? This tool is designed to help you achieve just that by planning your OPR according to 26 research-based recommendations that will help you. Why not build your OPR plan with your working group? We welcome your feedback on this tool.",
@@ -127,6 +128,14 @@
         ]
       }
     ]
+  },
+  "feedback":{
+    "feedback_title":"Tell us how you think of this tool",
+    "field_name":"Your Name",
+    "field_email":"Your Email",
+    "field_content":"Feedback",
+    "btn_submit":"Submit",
+    "btn_leave":"Go back to Home"
   },
   "summary":{
     "btn_modify":"Modify Your Customization",

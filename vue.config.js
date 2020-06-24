@@ -2,7 +2,7 @@ module.exports = {
   "transpileDependencies": [
     "vuetify"
   ],
-  publicPath: '/fammed-guide/',
+  publicPath: '/',
   chainWebpack: config => {
     config.module.rule('downloads')
       // bundle common document files

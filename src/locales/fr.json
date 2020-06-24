@@ -2,6 +2,7 @@
   "nav":{
     "btn_home":"HOME",
     "btn_guide":"GUIDE",
+    "btn_feedback":"FEEDBACK",
     "btn_lang":"EN",
     "btn_sec1":"SECTION 1",
     "btn_sec2":"SECTION 2",
@@ -126,6 +127,14 @@
         ]
       }
     ]
+  },
+  "feedback":{
+    "feedback_title":"Tell us how you think of this tool",
+    "field_name":"Your Name",
+    "field_email":"Your Email",
+    "field_content":"Feedback",
+    "btn_submit":"Submit",
+    "btn_leave":"Go back to Home"
   },
   "summary":{
     "btn_modify":"Modify Your Customization",

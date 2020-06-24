@@ -87,7 +87,7 @@
 <script>
 import {mapState, mapMutations} from 'vuex'
 export default {
-  name: 'DesktopHome',
+  name: 'Home',
 
   components: {
   },
