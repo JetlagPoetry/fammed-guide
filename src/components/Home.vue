@@ -11,7 +11,9 @@
             <div class="mx-auto my-0 col-8 home-desc">{{$t('home.text_desc')}}</div>
             <ul class="my-0 mx-auto text-center col-md-8 home-item" style="list-style-type:none;">
               <li v-for="(i, index) in 3" :key="index">{{$t('home.text_list['+index+']')}}<v-icon small color="#fff">mdi-check-circle-outline</v-icon></li>
-              <li @click="$vuetify.goTo('#div-opr', 'linear')" style="text-decoration: underline; ">{{$t('home.text_opr')}}</li>
+              <li @click="$vuetify.goTo('#div-opr', 'linear')" style="display:inline; text-decoration: underline; " class="mx-4">{{$t('home.text_opr')}}</li>
+              <li style="display:inline;">|</li>
+              <li @click="toFeedbackPage" style="display:inline; text-decoration: underline;" class="mx-4">{{$t('home.text_feedback')}}</li>
             </ul>
             <v-btn class="home-btn" :x-large="!is_mobile" outlined color="#fff" :href="require('../assets/guide.pdf')" download="OPR_guide.pdf">
               {{$t('home.btn_download_guide')}}
@@ -112,6 +114,10 @@ export default {
     toGuidePage() {
       this.setStepperStep(0);
       this.$router.push('/guide');
+    },
+
+    toFeedbackPage(){
+      this.$router.push('/feedback').catch(err => err);
     },
 
     toGuideN (n) {

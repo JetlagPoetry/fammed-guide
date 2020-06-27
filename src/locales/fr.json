@@ -1,26 +1,27 @@
 {
   "nav":{
-    "btn_home":"HOME",
+    "btn_home":"PAGE_D'ACCUEIL",
     "btn_guide":"GUIDE",
-    "btn_feedback":"FEEDBACK",
+    "btn_feedback":"RETOUR_D'INFORMATION",
     "btn_lang":"EN",
-    "btn_sec1":"SECTION 1",
-    "btn_sec2":"SECTION 2",
-    "btn_sec3":"SECTION 3",
-    "btn_sec4":"SECTION 4"
+    "btn_sec1":"Chapitre 1",
+    "btn_sec2":"Chapitre 2",
+    "btn_sec3":"Chapitre 3",
+    "btn_sec4":"Chapitre 4"
   },
   "home":{
     "text_title":"Guide sur la recherche participative organisationnelle (RPO)",
-    "text_desc":"A tool that helps build your tailored OPR plan",
-    "text_list":["select the recommendations use intend to implement","add details pertaining to your specific project","export your plan to share with your working group and other stakeholders"],
-    "text_opr":"What is OPR?",
-    "btn_customize":"Build your OPR plan",
-    "btn_export_all":"Export all recommendations",
-    "btn_download_guide":"Download PRO guide",
-    "opr_desc":"OPR is a means for managers, professionals and other employees to collaborate with researchers to effect changes they desire within the organization where they work. Research shows that OPR can lead to a variety of benefits for the organization and the people who work there over and above the changes sought by the OPR. How do you ensure the success of your OPR project and the chances of it leading to extra benefits? This tool is designed to help you achieve just that by planning your OPR according to 26 research-based recommendations that will help you. Why not build your OPR plan with your working group? We welcome your feedback on this tool.",
-    "opr_list_title":"This tool is organized according to these 4 groups of recommendations.",
-    "opr_list_item":["Form your OPR working group and establish a work processes","Collectively establish objectives, analyze data and determine how to use your OPR results","Adapt the OPR processes to the needs of the working group members","Collectively ensure the development and nurturing of the relationships within the working group"],
-    "template_title":"Take away your own research plan",
+    "text_desc":"Un outil qui aide à construire votre plan OPR sur mesure",
+    "text_list":["sélectionner les recommandations que vous comptez mettre en œuvre","ajouter des détails relatifs à votre projet spécifique","exporter votre plan pour le partager avec votre groupe de travail et d'autres parties prenantes"],
+    "text_opr":"Qu'est-ce que l'OPR?",
+    "text_feedback":"Envoyez-nous vos commentaires",
+    "btn_customize":"Construisez votre plan OPR",
+    "btn_export_all":"Exporter toutes les recommandations",
+    "btn_download_guide":"Télécharger le guide PRO",
+    "opr_desc":"OPR est un moyen pour les gestionnaires, les professionnels et les autres employés de collaborer avec les chercheurs pour effectuer les changements qu'ils souhaitent au sein de l'organisation où ils travaillent. La recherche montre que l'OPR peut entraîner divers avantages pour l'organisation et les personnes qui y travaillent, en plus des changements recherchés par l'OPR. Comment garantissez-vous le succès de votre projet OPR et les chances qu'il aboutisse à des bénéfices supplémentaires? Cet outil est conçu pour vous aider à atteindre cet objectif en planifiant votre OPR en fonction de 26 recommandations basées sur la recherche qui vous aideront. Pourquoi ne pas construire votre plan OPR avec votre groupe de travail? Nous apprécions vos commentaires sur cet outil.",
+    "opr_list_title":"Cet outil est organisé selon ces 4 groupes de recommandations.",
+    "opr_list_item":["Formez votre groupe de travail OPR et établissez un processus de travail","Établir collectivement des objectifs, analyser des données et déterminer comment utiliser vos résultats OPR","Adapter les processus OPR aux besoins des membres du groupe de travail","Assurer collectivement le développement et le maintien des relations au sein du groupe de travail"],
+    "template_title":"Emportez votre propre plan de recherche",
     "template_content":"A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine."
 
   },
@@ -31,16 +32,16 @@
       "ADAPTER LES PROCESSUS DE LA RPO AUX BESOINS DES MEMBRES DU GROUPE DE TRAVAIL",
       "VEILLER COLLECTIVEMENT À L’ÉTABLISSEMENT ET À L’ENTRETIEN DES RELATIONS AU SEIN DU GROUPE DE TRAVAIL"
     ],
-    "btn_next":"Next",
-    "btn_previous":"Previous",
-    "btn_export":"Generate PDF",
-    "btn_expandAll":"Expand All",
-    "btn_collapseAll":"Collapse All",
-    "btn_selectAll":"Select All",
-    "btn_unselectAll":"Unselect All",
-    "btn_save":"Save",
-    "cbx_selectHint":"Add this recommendation to your OPR plan",
-    "txt_instrHint":"Type specific details for your OPR here",
+    "btn_next":"Prochain",
+    "btn_previous":"Précédent",
+    "btn_export":"Générer un PDF",
+    "btn_expandAll":"Développer tout",
+    "btn_collapseAll":"Réduire tout",
+    "btn_selectAll":"Tout sélectionner",
+    "btn_unselectAll":"Tout déselectionner",
+    "btn_save":"sauver",
+    "cbx_selectHint":"Ajoutez cette recommandation à votre plan OPR",
+    "txt_instrHint":"Saisissez ici les détails spécifiques de votre OPR",
     "text_content":[
       {
         "title_text":"1. CONSTITUER UN GROUPE DE TRAVAIL EN RPO ET ÉTABLIR COLLECTIVEMENT DES PROCESSUS DE FONCTIONNEMENT. ",
@@ -129,19 +130,20 @@
     ]
   },
   "feedback":{
-    "feedback_title":"Tell us how you think of this tool",
-    "field_name":"Your Name",
-    "field_email":"Your Email",
-    "field_content":"Feedback",
-    "btn_submit":"Submit",
-    "btn_leave":"Go back to Home"
+    "feedback_title":"Dites-nous comment vous pensez de cet outil",
+    "feedback_require":"Tous les champs sont requis",
+    "field_name":"Votre nom",
+    "field_email":"Votre email",
+    "field_content":"Retour d'information",
+    "btn_submit":"Soumettre",
+    "btn_leave":"Retour à l'accueil"
   },
   "summary":{
-    "btn_modify":"Modify Your Customization",
-    "btn_download":"Download Your PDF",
-    "title_summary":"Summary",
-    "title_header":"Add pdf title here",
-    "title_logo":"Upload your logo",
+    "btn_modify":"Modifiez votre personnalisation",
+    "btn_download":"Téléchargez votre PDF",
+    "title_summary":"3. Vérifiez l'aperçu",
+    "title_header":"1. Ajoutez le titre du pdf ici",
+    "title_logo":"2. Upload your logo",
     "default_pdf_title":"Guide sur la recherche participative organisationnelle (RPO)"
   }
 }

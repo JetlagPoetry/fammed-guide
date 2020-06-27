@@ -68,25 +68,25 @@
           v-model="mobile_group"
         >
           <v-list-item @click="toHomePage">
-            <v-list-item-title>Home</v-list-item-title>
+            <v-list-item-title>{{$t('nav.btn_home')}}</v-list-item-title>
           </v-list-item>
           <v-list-item @click="toGuideN(1)">
-            <v-list-item-title>Chapter1</v-list-item-title>
+            <v-list-item-title>{{$t('nav.btn_sec1')}}</v-list-item-title>
           </v-list-item>
 
           <v-list-item @click="toGuideN(2)">
-            <v-list-item-title>Chapter2</v-list-item-title>
+            <v-list-item-title>{{$t('nav.btn_sec2')}}</v-list-item-title>
           </v-list-item>
 
           <v-list-item @click="toGuideN(3)">
-            <v-list-item-title>Chapter3</v-list-item-title>
+            <v-list-item-title>{{$t('nav.btn_sec3')}}</v-list-item-title>
           </v-list-item>
 
           <v-list-item @click="toGuideN(4)">
-            <v-list-item-title>Chapter4</v-list-item-title>
+            <v-list-item-title>{{$t('nav.btn_sec4')}}</v-list-item-title>
           </v-list-item>
           <v-list-item @click="toFeedbackPage">
-            <v-list-item-title>Provide Feedback</v-list-item-title>
+            <v-list-item-title>{{$t('nav.btn_feedback')}}</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>

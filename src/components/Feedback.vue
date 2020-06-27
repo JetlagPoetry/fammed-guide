@@ -1,6 +1,16 @@
 <template>
   <v-container>
     <v-row justify="center">
+      <v-overlay
+        :value="loading"
+      >
+      <v-progress-circular
+        indeterminate
+        size="70"
+        width="5"
+        color="primary"
+      ></v-progress-circular>
+      </v-overlay>
       <div id="feedback-page-div">
         <div class="d-flex justify-space-between my-4" style="flex-wrap:wrap">
           <v-btn text large color="primary" class="mx-2" @click="toHomePage()">
@@ -9,7 +19,10 @@
           </v-btn>
         </div>
         <h2 id="feedback-title">{{$t('feedback.feedback_title')}}</h2>
+
+          
         <div id="feedback-text-div">
+          <div style="font-size: 14px; margin-bottom: 4px">*{{$t('feedback.feedback_require')}}</div>
           <v-text-field
             outlined
             :label="$t('feedback.field_name')"
@@ -20,19 +33,21 @@
             :label="$t('feedback.field_email')"
             v-model="data_email"
           ></v-text-field>
-          <v-text-field
+          <v-textarea
             outlined
+            auto-grow
             :label="$t('feedback.field_content')"
-            height="25vh"
             v-model="data_feedback"
-          ></v-text-field>
-
+          ></v-textarea>
           <div class="d-flex justify-center">
             <v-btn
               id="feedback-btn"
-              color="primary">
+              color="primary"
+              @click="submitFeedback"
+              :disabled="data_name===''||data_email===''||data_feedback===''"
+              v-on="on">
               {{$t('feedback.btn_submit')}}
-            </v-btn>
+                  </v-btn>
           </div>
         </div>
       </div>
@@ -52,7 +67,8 @@ export default {
   data: () => ({
     data_name:"",
     data_email:"",
-    data_feedback:""
+    data_feedback:"",
+    loading: false
   }),
 
   computed:{
@@ -78,11 +94,15 @@ export default {
         email:this.data_email, 
         content:this.data_feedback
       };
+      this.loading = true;
       http.post(`/comment/add`, data)
         .then(response => {
-          this.test = 'success' + response.data;
+          if(response.status===200){
+            this.$router.push('/feedback/result');
+          }
         })
-        .catch();
+        .catch()
+        .finally(() => (this.loading = false));
     }
   }
 };

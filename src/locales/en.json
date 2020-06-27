@@ -4,16 +4,17 @@
     "btn_guide":"GUIDE",
     "btn_feedback":"FEEDBACK",
     "btn_lang":"FR",
-    "btn_sec1":"SECTION 1",
-    "btn_sec2":"SECTION 2",
-    "btn_sec3":"SECTION 3",
-    "btn_sec4":"SECTION 4"
+    "btn_sec1":"Chapter 1",
+    "btn_sec2":"Chapter 2",
+    "btn_sec3":"Chapter 3",
+    "btn_sec4":"Chapter 4"
   },
   "home":{
     "text_title":"ORGANIZATIONAL PARTICIPATORY RESEARCH Practice Guide",
     "text_desc":"A tool that helps build your tailored OPR plan",
     "text_list":["select the recommendations use intend to implement","add details pertaining to your specific project","export your plan to share with your working group and other stakeholders"],
     "text_opr":"What is OPR?",
+    "text_feedback":"Send us your feedback",
     "btn_customize":"Build your OPR plan",
     "btn_export_all":"Export all recommendations",
     "btn_download_guide":"Download PRO guide",
@@ -131,6 +132,7 @@
   },
   "feedback":{
     "feedback_title":"Tell us how you think of this tool",
+    "feedback_require":"All fields are required",
     "field_name":"Your Name",
     "field_email":"Your Email",
     "field_content":"Feedback",
@@ -140,9 +142,9 @@
   "summary":{
     "btn_modify":"Modify Your Customization",
     "btn_download":"Download Your PDF",
-    "title_summary":"Summary",
-    "title_header":"Add pdf title here",
-    "title_logo":"Upload your logo",
+    "title_summary":"3. Check the preview",
+    "title_header":"1. Add pdf title here",
+    "title_logo":"2. Upload your logo",
     "default_pdf_title":"ORGANIZATIONAL PARTICIPATORY RESEARCH Practice Guide"
   }
 }

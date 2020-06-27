@@ -13,22 +13,22 @@
               <v-icon right color="primary">mdi-arrow-right</v-icon>
           </v-btn>
         </div>
-        <div class="d-flex justify-space-between my-4" style="flex-wrap:wrap">
+        <div class="d-flex justify-space-around my-4" style="flex-wrap:wrap">
           <div
             id="sum-title-div"
             class="mr-2">
             <h2>{{$t('summary.title_header')}}</h2>
             <v-text-field
               class="my-12 mx-2"
-              dense
+              outlined
               :label="$t('summary.title_header')"
               v-model="pdf_title"
             ></v-text-field>
-          </div>  
+          </div>
           <div>
             <h2>{{$t('summary.title_logo')}}</h2>
             <input type="file" @change="uploadImage($event)">
-            <canvas id="logo_canvas"></canvas>
+            <canvas id="logo_canvas" v-if="logo_uploaded"></canvas>
           </div>
         </div>
         <h2 class="my-4">{{$t('summary.title_summary')}}</h2>
@@ -56,6 +56,7 @@ export default {
     logo_data: null,
     logo_width: 1,
     logo_height: 1,
+    logo_uploaded: false
   }),
 
   computed:{
@@ -81,6 +82,7 @@ export default {
     },
 
     uploadImage(e){
+      this.logo_uploaded = true;
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length)
         return;
@@ -155,6 +157,7 @@ export default {
         heightLeft -= pageHeight;
       }
       doc.save('Guide_Diagram.pdf');
+      this.$router.push('/feedback');
     }
   }
 };
