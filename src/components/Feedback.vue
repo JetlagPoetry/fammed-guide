@@ -19,35 +19,46 @@
           </v-btn>
         </div>
         <h2 id="feedback-title">{{$t('feedback.feedback_title')}}</h2>
-
-          
         <div id="feedback-text-div">
-          <div style="font-size: 14px; margin-bottom: 4px">*{{$t('feedback.feedback_require')}}</div>
+          <v-alert
+            dense
+            type="error"
+            border="top"
+            v-if="submission_error"
+          >
+             {{$t('feedback.error_message')}}
+          </v-alert>
           <v-text-field
             outlined
             :label="$t('feedback.field_name')"
             v-model="data_name"
+            :rules="[rules.required]"
+            class="my-2"
           ></v-text-field>
           <v-text-field
             outlined
             :label="$t('feedback.field_email')"
             v-model="data_email"
+            :rules="[rules.required, rules.email]"
+            class="my-2"
           ></v-text-field>
           <v-textarea
             outlined
             auto-grow
             :label="$t('feedback.field_content')"
             v-model="data_feedback"
+            :rules="[rules.required, rules.counter]"
+            class="my-2"
           ></v-textarea>
+          <div style="font-size: 14px; margin-bottom: 24px">*{{$t('feedback.feedback_require')}}</div>
           <div class="d-flex justify-center">
             <v-btn
               id="feedback-btn"
               color="primary"
               @click="submitFeedback"
-              :disabled="data_name===''||data_email===''||data_feedback===''"
-              v-on="on">
+              :disabled="data_name===''||data_email===''||data_feedback===''">
               {{$t('feedback.btn_submit')}}
-                  </v-btn>
+            </v-btn>
           </div>
         </div>
       </div>
@@ -68,7 +79,17 @@ export default {
     data_name:"",
     data_email:"",
     data_feedback:"",
-    loading: false
+    loading: false,
+    submission_error: false,
+    error_code: 0,
+    rules: {
+      required: value => !!value || 'Required.',
+      counter: value => value.length >= 20 || 'Mininum 20 characters',
+      email: value => {
+        const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        return pattern.test(value) || 'Invalid e-mail.'
+      },
+    },
   }),
 
   computed:{
@@ -98,7 +119,11 @@ export default {
       http.post(`/comment/add`, data)
         .then(response => {
           if(response.status===200){
+            this.submission_error = false;
             this.$router.push('/feedback/result');
+          }else{
+            this.error_code = response.status;
+            this.submission_error = true;
           }
         })
         .catch()
@@ -107,3 +132,5 @@ export default {
   }
 };
 </script>
+
+<style src="../css/mycss.css"/>

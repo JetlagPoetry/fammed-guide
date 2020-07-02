@@ -6,11 +6,11 @@
       <div v-html="$t('guide.text_content['+section+'].intro_text')" class="my-4"></div>
       <v-divider></v-divider>
       <div class="my-6">        
-          <v-btn v-if="btn_show_collapse[section]" color="primary" class="mx-2" @click="expandAllPanel(section)" style="width:12%; min-width: 160px">
+          <v-btn v-if="btn_show_collapse[section]" color="primary" class="mx-2" @click="expandAllPanel(section)">
               <v-icon left medium>mdi-minus</v-icon>
               {{$t('guide.btn_collapseAll')}}
           </v-btn>
-          <v-btn v-else color="primary" class="mx-2" @click="expandAllPanel(section)" style="width:12%; min-width: 160px">
+          <v-btn v-else color="primary" class="mx-2" @click="expandAllPanel(section)">
               <v-icon left medium color="#fff">mdi-plus</v-icon>
               {{$t('guide.btn_expandAll')}}
           </v-btn>

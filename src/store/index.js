@@ -26,12 +26,11 @@ export default new Vuex.Store({
 		],
 		btn_show_collapse: [false, false, false, false],
 		btn_show_unselect: [false, false, false, false],
-		// The diagram data.
-		diagram_data: "",
+		diagram_data: "",// The diagram data.
 		diagram_title: "",
 		diagram_width: 0,
 		diagram_height: 0,
-		stepper_current_step: 1
+		stepper_current_step: 0 // Starts from 0. 0~3 refers to step 1~4 respectively.
 	},
 	mutations: {
 		// Set if the device is mobile or desktop

@@ -45,7 +45,7 @@
     "text_content":[
       {
         "title_text":"1. FORM AN OPR WORKING GROUP AND COLLECTIVELY ESTABLISH WORK PROCESSES",
-        "intro_text":"Organizational Participatory Research (OPR) is carried out by a core working group of health organization and academic researcher stakeholders. Health organization stakeholders participating in the working group ought to be representative of all organization stakeholder groups. That is, representatives of those who will need to implement the changes addressed by the OPR, as well as representatives of those who will be affected by the changes (and their potential effects), should participate in research-related decisions, with the academic researcher(s), throughout the OPR. Literature reviews suggest health organization stakeholders’ participation in the decisionmaking may take the form of being consulted by the academic researcher(s) or co-constructing the OPR with the academic researcher(s) (<a href='https://www.sciencedirect.com/science/article/pii/S0149718918301459'>Bush et al., 2015; Munn-Giddings, McVicar, & Smith, 2008</a>). The decision regarding extent of participation should be that of the working group.",
+        "intro_text":"Organizational Participatory Research (OPR) is carried out by a core working group of health organization and academic researcher stakeholders. Health organization stakeholders participating in the working group ought to be representative of all organization stakeholder groups. That is, representatives of those who will need to implement the changes addressed by the OPR, as well as representatives of those who will be affected by the changes (and their potential effects), should participate in research-related decisions, with the academic researcher(s), throughout the OPR. Literature reviews suggest health organization stakeholders’ participation in the decisionmaking may take the form of being consulted by the academic researcher(s) or co-constructing the OPR with the academic researcher(s) (<a href='https://www.sciencedirect.com/science/article/pii/S0149718918301459'>Bush et al., 2015;</a><a href='https://journals.sagepub.com/doi/10.1177/1744987108090297'> Munn-Giddings, McVicar, & Smith, 2008</a>). The decision regarding extent of participation should be that of the working group.",
 
         "subheader_text":[
           "1.1. RECRUIT STAKEHOLDER REPRESENTATIVES KNOWN TO WORK WELL IN GROUPS.",
@@ -70,7 +70,7 @@
       },
       {
         "title_text":"2. COLLECTIVELY ESTABLISH OBJECTIVES, ANALYZE DATA AND DETERMINE HOW TO USE OPR RESULTS",
-        "intro_text":"A systematic review of the OPR health literature suggests that the research decisions that must be made in a participatory manner pertain to the research question and specific objectives of the OPR, the data analysis and the use of results are crucial (Bush et al., 2015). Participation in other research phases, while not addressed explicitly in this document, can be addressed collectively by the working group, as well. This may mean, for instance, that the working group plans the data collection, identifying, for instance, participants to recruit and how to recruit them, or the type of data to collect and by which means.",
+        "intro_text":"A systematic review of the OPR health literature suggests that the research decisions that must be made in a participatory manner pertain to the research question and specific objectives of the OPR, the data analysis and the use of results are crucial (<a href='https://www.sciencedirect.com/science/article/pii/S0149718918301459'>Bush et al., 2015</a>). Participation in other research phases, while not addressed explicitly in this document, can be addressed collectively by the working group, as well. This may mean, for instance, that the working group plans the data collection, identifying, for instance, participants to recruit and how to recruit them, or the type of data to collect and by which means.",
         "subheader_text":[
           "2.1. ESTABLISH OBJECTIVES QUICKLY TO HELP BUILD THE COMMITMENT OF WORKING GROUP MEMBERS.",
           "2.2. ANALYZE DATA AND INTERPRET RESULTS.",
@@ -137,7 +137,8 @@
     "field_email":"Your Email",
     "field_content":"Feedback",
     "btn_submit":"Submit",
-    "btn_leave":"Go back to Home"
+    "btn_leave":"Go back to Home",
+    "error_message": "Submission Failed, Please Try Again. Error Code:"
   },
   "summary":{
     "btn_modify":"Modify Your Customization",

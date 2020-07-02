@@ -1,8 +1,8 @@
 {
   "nav":{
-    "btn_home":"PAGE_D'ACCUEIL",
+    "btn_home":"PAGE D'ACCUEIL",
     "btn_guide":"GUIDE",
-    "btn_feedback":"RETOUR_D'INFORMATION",
+    "btn_feedback":"RETOUR D'INFORMATION",
     "btn_lang":"EN",
     "btn_sec1":"Chapitre 1",
     "btn_sec2":"Chapitre 2",
@@ -45,7 +45,7 @@
     "text_content":[
       {
         "title_text":"1. CONSTITUER UN GROUPE DE TRAVAIL EN RPO ET ÉTABLIR COLLECTIVEMENT DES PROCESSUS DE FONCTIONNEMENT. ",
-        "intro_text":"Toute RPO est menée par un groupe de travail composé des représentants de parties prenantes membres universitaires et membres d’organisations de santé.<br /><br /> Les parties prenantes organisationnelles qui participent à ce groupe de travail devraient représenter tous les types de parties prenantes de l’organisation de santé, c’est-à-dire les représentants de ceux qui devront mettre en œuvre les changements visés par la RPO et les personnes qui représentent ceux touchés par les changements (et leurs répercussions possibles) devraient tous prendre part aux décisions liées à la recherche avec le ou les universitaires tout au long de la RPO.<br /><br /> Des revues de la littérature indiquent que la participation à la prise de décision par les parties prenantes d’organisations de santé peut prendre la forme soit d’une consultation par le ou les universitaires, ou d’une mise en contexte de la RPO en collaboration avec ce ou ces derniers (<a href='https://www.sciencedirect.com/science/article/pii/S0149718918301459'>Bush et al., 2015; Munn-Giddings, McVicar, & Smith, 2008</a>). La décision quant à l’ampleur de la participation doit être décidée par le groupe de travail.",
+        "intro_text":"Toute RPO est menée par un groupe de travail composé des représentants de parties prenantes membres universitaires et membres d’organisations de santé.<br /><br /> Les parties prenantes organisationnelles qui participent à ce groupe de travail devraient représenter tous les types de parties prenantes de l’organisation de santé, c’est-à-dire les représentants de ceux qui devront mettre en œuvre les changements visés par la RPO et les personnes qui représentent ceux touchés par les changements (et leurs répercussions possibles) devraient tous prendre part aux décisions liées à la recherche avec le ou les universitaires tout au long de la RPO.<br /><br /> Des revues de la littérature indiquent que la participation à la prise de décision par les parties prenantes d’organisations de santé peut prendre la forme soit d’une consultation par le ou les universitaires, ou d’une mise en contexte de la RPO en collaboration avec ce ou ces derniers (<a href='https://www.sciencedirect.com/science/article/pii/S0149718918301459'>Bush et al., 2015;</a><a href='https://journals.sagepub.com/doi/10.1177/1744987108090297'> Munn-Giddings, McVicar, & Smith, 2008</a>). La décision quant à l’ampleur de la participation doit être décidée par le groupe de travail.",
         "subheader_text":[
           "1.1. RECRUTER DES REPRÉSENTANTS DES PARTIES PRENANTES QUI ONT UNE EXPÉRIENCE DE TRAVAIL EN GROUPE. ",
           "1.2. RECRUTER DES MEMBRES DU GROUPE DE TRAVAIL QUI PROVIENNENT DE TOUTES LES PARTIES PRENANTES, DONT LA GESTION.",
@@ -69,7 +69,7 @@
       },
       {
         "title_text":"2. FORMULER COLLECTIVEMENT LES OBJECTIFS, ANALYSER LES DONNÉES ET DÉTERMINER L’UTILISATION DES RÉSULTATS OBTENUS LORS D’UNE RPO. ",
-        "intro_text":"Une revue systématique de la littérature en RPO avec des organisations de santé indique que les décisions essentielles qui doivent être prises de façon participative concernent la question et les objectifs spécifiques du projet de recherche, l’analyse des données ainsi que l’utilisation des résultats (Bush et al., 2015). Même s’il n’en est pas explicitement question dans ce document, le type de participation à chaque phase du projet de recherche peut également être décidé de manière collective par le groupe de travail. Par exemple, ceci peut prendre la forme d’une discussion au sein du groupe de travail pour planifier la collecte des données, notamment identifier les participants à recruter et la façon de s’y prendre pour les recruter, ou le type de données à recueillir et la manière de procéder.",
+        "intro_text":"Une revue systématique de la littérature en RPO avec des organisations de santé indique que les décisions essentielles qui doivent être prises de façon participative concernent la question et les objectifs spécifiques du projet de recherche, l’analyse des données ainsi que l’utilisation des résultats (<a href='https://www.sciencedirect.com/science/article/pii/S0149718918301459'>Bush et al., 2015</a>). Même s’il n’en est pas explicitement question dans ce document, le type de participation à chaque phase du projet de recherche peut également être décidé de manière collective par le groupe de travail. Par exemple, ceci peut prendre la forme d’une discussion au sein du groupe de travail pour planifier la collecte des données, notamment identifier les participants à recruter et la façon de s’y prendre pour les recruter, ou le type de données à recueillir et la manière de procéder.",
         "subheader_text":[
           "2.1. FORMULER RAPIDEMENT DES OBJECTIFS POUR AIDER À FAVORISER L’ENGAGEMENT DES MEMBRES DU GROUPE DE TRAVAIL.",
           "2.2. ANALYSER LES DONNÉES ET INTERPRÉTER LES RÉSULTATS.",
@@ -136,7 +136,8 @@
     "field_email":"Votre email",
     "field_content":"Retour d'information",
     "btn_submit":"Soumettre",
-    "btn_leave":"Retour à l'accueil"
+    "btn_leave":"Retour à l'accueil",
+    "error_message": "Échec de la soumission, veuillez réessayer. Code d'erreur:"
   },
   "summary":{
     "btn_modify":"Modifiez votre personnalisation",
