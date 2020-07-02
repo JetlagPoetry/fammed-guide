@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-col cols="12" sm="11" md="11" lg="8" xl="8" v-if="!is_mobile" 
+    <v-col cols="12" sm="11" md="11" lg="10" xl="8" v-if="!is_mobile" 
           class="my-6">
       <!-- Desktop version using v-stepper. 'stepper_current_step+1' ranges from 1-4. Step also ranges from 1-4 -->
       <v-stepper

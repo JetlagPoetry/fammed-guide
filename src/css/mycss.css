@@ -62,11 +62,6 @@
     font-family: Georgia, serif
 }
 
-.row-opr{
-    justify-content: center; 
-    align-items: center; 
-    display: flex;
-}
 .opr-desc{
     font-family: Verdana, Georgia, serif
 }

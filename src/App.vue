@@ -15,7 +15,7 @@
           class="shrink mt-1 mx-12"
           contain
           min-width="100"
-          src="./assets/my_logo.png"
+          src="./assets/logo.png"
           width="160"
           position="center"
         />
@@ -51,6 +51,7 @@
           @click="changeLanguage"
           text
         >
+          <v-icon>mdi-earth</v-icon>
           <span class="mr-2">{{$t('nav.btn_lang')}}</span>
         </v-btn>
     </v-app-bar>

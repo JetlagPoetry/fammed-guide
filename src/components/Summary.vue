@@ -10,14 +10,34 @@
           <v-spacer></v-spacer>
           <v-btn text large color="primary"  @click="generateImages()">
               {{$t('summary.btn_download')}}
-              <v-icon right color="primary">mdi-arrow-right</v-icon>
+              <v-icon right color="primary">mdi-download</v-icon>
           </v-btn>
         </div>
         <v-row justify="center">
           <v-col cols="12" sm="12" md="10" lg="10" xl="10">
+            <v-alert
+              text
+              color="info"
+              :value="download_success"
+              transition="scale-transition"
+            >
+              <v-row
+                align="center"
+              >
+                <v-col class="grow">{{$t('summary.download_prompt')}} </v-col>
+                <v-col class="shrink">
+                  <v-btn
+                    color="info"
+                    outlined
+                    @click="toFeedbackPage"
+                  >
+                    {{$t('summary.btn_feedback')}}
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </v-alert>
             <div class="d-flex justify-space-between my-4" style="flex-wrap:wrap">
               <div
-                id="sum-title-div"
                 class="mr-2">
                 <h2>{{$t('summary.title_header')}}</h2>
                 <v-text-field
@@ -60,7 +80,8 @@ export default {
     logo_data: null,
     logo_width: 1,
     logo_height: 1,
-    logo_uploaded: false
+    logo_uploaded: false,
+    download_success: false
   }),
 
   computed:{
@@ -161,6 +182,10 @@ export default {
         heightLeft -= pageHeight;
       }
       doc.save('Guide_Diagram.pdf');
+      this.download_success = true;
+    },
+
+    toFeedbackPage(){
       this.$router.push('/feedback');
     }
   }

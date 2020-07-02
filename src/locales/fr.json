@@ -22,7 +22,7 @@
     "opr_list_title":"Cet outil est organisé selon ces 4 groupes de recommandations.",
     "opr_list_item":["Formez votre groupe de travail OPR et établissez un processus de travail","Établir collectivement des objectifs, analyser des données et déterminer comment utiliser vos résultats OPR","Adapter les processus OPR aux besoins des membres du groupe de travail","Assurer collectivement le développement et le maintien des relations au sein du groupe de travail"],
     "template_title":"Emportez votre propre plan de recherche",
-    "template_content":"A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine."
+    "template_content":"Sélectionnez les recommandations que vous souhaitez mettre en œuvre, ajoutez des détails relatifs à votre projet spécifique et exportez votre plan à partager avec votre groupe de travail et d'autres parties prenantes."
 
   },
   "guide":{
@@ -144,7 +144,9 @@
     "btn_download":"Téléchargez votre PDF",
     "title_summary":"3. Vérifiez l'aperçu",
     "title_header":"1. Ajoutez le titre du pdf ici",
-    "title_logo":"2. Upload your logo",
-    "default_pdf_title":"Guide sur la recherche participative organisationnelle (RPO)"
+    "title_logo":"2. Téléchargez votre logo",
+    "default_pdf_title":"Guide sur la recherche participative organisationnelle (RPO)",
+    "download_prompt": "Votre fichier est en cours de téléchargement. Prenez votre propre plan OPR et laissez-nous quelques commentaires. Vos commentaires seraient grandement appréciés.",
+    "btn_feedback": "Envoyez vos commentaires maintenant"
   }
 }

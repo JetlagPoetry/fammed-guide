@@ -22,7 +22,7 @@
     "opr_list_title":"This tool is organized according to these 4 groups of recommendations.",
     "opr_list_item":["Form your OPR working group and establish a work processes","Collectively establish objectives, analyze data and determine how to use your OPR results","Adapt the OPR processes to the needs of the working group members","Collectively ensure the development and nurturing of the relationships within the working group"],
     "template_title":"Take away your own research plan",
-    "template_content":"A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine."
+    "template_content":"Select the recommendations use intend to implement, add details pertaining to your specific project and export your plan to share with your working group and other stakeholders."
 
   },
   "guide":{
@@ -146,6 +146,8 @@
     "title_summary":"3. Check the preview",
     "title_header":"1. Add pdf title here",
     "title_logo":"2. Upload your logo",
-    "default_pdf_title":"ORGANIZATIONAL PARTICIPATORY RESEARCH Practice Guide"
+    "default_pdf_title":"ORGANIZATIONAL PARTICIPATORY RESEARCH Practice Guide",
+    "download_prompt": "Your file is being downloaded. Take your own OPR plan and leave us some comments. Your feedback would be greatly appreciated.",
+    "btn_feedback": "Send Feedback Now"
   }
 }

@@ -27,7 +27,7 @@
                   border="top"
                   v-if="submission_error"
                 >
-                  {{$t('feedback.error_message')}}
+                  {{$t('feedback.error_message')}}{{error_code}}
                 </v-alert>
                 <v-text-field
                   outlined
@@ -121,16 +121,15 @@ export default {
       };
       this.loading = true;
       http.post(`/comment/add`, data)
-        .then(response => {
-          if(response.status===200){
+        .then(() => {
             this.submission_error = false;
             this.$router.push('/feedback/result');
-          }else{
-            this.error_code = response.status;
-            this.submission_error = true;
-          }
+            //response.status
         })
-        .catch()
+        .catch(error =>{
+          this.error_code = error;
+          this.submission_error = true;
+        })
         .finally(() => (this.loading = false));
     }
   }
