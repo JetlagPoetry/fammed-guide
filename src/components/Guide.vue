@@ -1,69 +1,67 @@
 <template>
-  <div>
-    <!-- Desktop version using v-stepper. 'stepper_current_step+1' ranges from 1-4. Step also ranges from 1-4 -->
-    <div class="mt-6 px-6 mx-auto"  style="width:95%; max-width:1400px" v-if="!is_mobile">
-      <v-container style="width:100%" >
-        <v-stepper
-          :value="stepper_current_step+1"
-          alt-labels 
-          non-linear
-          style="width:100%">
-        <v-stepper-header>
-          <v-stepper-step step="1" editable ><div class="px-4" style="width:220px; font-size:small">{{$t('guide.text_step[0]')}}</div></v-stepper-step>
-          
-          <v-divider></v-divider>
-          
-          <v-stepper-step step="2" editable><div class="px-4" style="width:220px;font-size:small">{{$t('guide.text_step[1]')}}</div></v-stepper-step>
+  <v-row justify="center">
+    <v-col cols="12" sm="11" md="11" lg="8" xl="8" v-if="!is_mobile" 
+          class="my-6">
+      <!-- Desktop version using v-stepper. 'stepper_current_step+1' ranges from 1-4. Step also ranges from 1-4 -->
+      <v-stepper
+        :value="stepper_current_step+1"
+        alt-labels 
+        non-linear>
+      <v-stepper-header>
+        <v-stepper-step step="1" editable ><div class="px-4" style="width:220px; font-size:small">{{$t('guide.text_step[0]')}}</div></v-stepper-step>
+        
+        <v-divider></v-divider>
+        
+        <v-stepper-step step="2" editable><div class="px-4" style="width:220px;font-size:small">{{$t('guide.text_step[1]')}}</div></v-stepper-step>
 
-          <v-divider></v-divider>
+        <v-divider></v-divider>
 
-          <v-stepper-step step="3" editable><div class="px-4" style="width:220px;font-size:small">{{$t('guide.text_step[2]')}}</div></v-stepper-step>
+        <v-stepper-step step="3" editable><div class="px-4" style="width:220px;font-size:small">{{$t('guide.text_step[2]')}}</div></v-stepper-step>
 
-          <v-divider></v-divider>
+        <v-divider></v-divider>
 
-          <v-stepper-step step="4" editable><div class="px-4" style="width:220px;font-size:small">{{$t('guide.text_step[3]')}}</div></v-stepper-step>
+        <v-stepper-step step="4" editable><div class="px-4" style="width:220px;font-size:small">{{$t('guide.text_step[3]')}}</div></v-stepper-step>
 
-        </v-stepper-header>
+      </v-stepper-header>
 
-          <v-stepper-items class="px-4 pb-4">
-            <v-stepper-content
-              v-for="(step, section) in steps"
-              :key="section"
-              :step="section+1"
-            >
-              <GuideSection :section="section"></GuideSection>
-              <v-btn
-                v-if="section>0"
-                color="primary"
-                @click="lastStep(section)"
-                class="mx-2"
-              >
-                {{$t('guide.btn_previous')}}
-              </v-btn>
+      <v-stepper-items class="px-4 pb-4">
+        <v-stepper-content
+          v-for="(step, section) in steps"
+          :key="section"
+          :step="section+1"
+        >
+          <GuideSection :section="section"></GuideSection>
+          <v-btn
+            v-if="section>0"
+            color="primary"
+            @click="lastStep(section)"
+            class="mx-2"
+          >
+            {{$t('guide.btn_previous')}}
+          </v-btn>
 
-              <v-btn
-                v-if="section<3"
-                color="primary"
-                @click="nextStep(section)"
-                class="mx-2"
-              >
-                {{$t('guide.btn_next')}}
-              </v-btn>
-              <v-btn
-                v-if="section==3"
-                color="primary"
-                @click="toSummary()"
-                class="mx-2"
-              >
-                {{$t('guide.btn_export')}}
-              </v-btn>
-            </v-stepper-content>
-          </v-stepper-items>
-        </v-stepper>
-      </v-container>
-    </div>
+          <v-btn
+            v-if="section<3"
+            color="primary"
+            @click="nextStep(section)"
+            class="mx-2"
+          >
+            {{$t('guide.btn_next')}}
+          </v-btn>
+          <v-btn
+            v-if="section==3"
+            color="primary"
+            @click="toSummary()"
+            class="mx-2"
+          >
+            {{$t('guide.btn_export')}}
+          </v-btn>
+        </v-stepper-content>
+      </v-stepper-items>
+    </v-stepper>
+  </v-col>
     <!-- Mobile version using v-stepper. 'stepper_current_step' ranges 0-3 -->
-    <v-container v-else>
+    <v-container v-else class="mx-2">
       <GuideSection :section="stepper_current_step"></GuideSection>
       <div class="d-flex justify-content-start my-4" style="width:100%">
         <v-spacer></v-spacer>
@@ -97,7 +95,7 @@
         </v-btn>
       </div>
     </v-container>
-  </div>
+</v-row>
 </template>
 
 <script>

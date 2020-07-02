@@ -1,32 +1,13 @@
 
 @media only screen and (max-width: 420px) {
-    #sum-page-div{
-        width:100%;
-        padding: 16px;
-    }
-
-    #feedback-page-div{
-        width:100%;
-        padding: 16px;
-    }
-
-    #sum-title-div{
-        /*width:25%; */
-        min-width:220px
-    }
-
     #sum-diagram{
         background-color: #fff; 
         width: 100%;
     }
 
-    #feedback-text-div{
-        margin-top: 24px;
-        width:100%;
-    }
-
     #feedback-title{
-
+        margin-top: 12px;
+        margin-bottom: 12px
     }
 
     #feedback-btn{
@@ -35,32 +16,6 @@
 }
 
 @media only screen and (min-width: 420px) {
-    #sum-page-div{
-        width:90%; 
-        max-width:1100px;
-        margin-top: 24px;
-        margin-bottom: 48px;
-        margin-left: 24px;
-        margin-right: 24px;
-        padding-left: 48px;
-        padding-right: 48px;
-    }
-
-    #feedback-page-div{
-        width:90%; 
-        max-width:1100px;
-        margin-top: 24px;
-        margin-bottom: 48px;
-        margin-left: 24px;
-        margin-right: 24px;
-        padding-left: 48px;
-        padding-right: 48px;
-    }
-
-    #sum-title-div{
-        min-width:220px
-    }
-
     #sum-diagram{
         background-color: #fff; 
         width: 100%; 
@@ -68,25 +23,17 @@
         margin-right:24px;
     }
 
-    #feedback-text-div{
-        width:60%;
-        min-width: 420px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 24px;
-    }
-
     #feedback-title{
         width: 100%;
-        text-align: center
+        text-align: center;
+        margin-top: 12px;
+        margin-bottom: 12px
     }
 
     #feedback-btn{
         width:30%;
     }
 }
-
-
 
 .home-btn{
     margin-top: 24px;

@@ -7,21 +7,16 @@
 import {mapState, mapMutations} from 'vuex'
 import go from 'gojs';
 export default {
-
   name: "TreeDiagram",
-
   data: () => ({
     diagram: '',
     roundedRectangleParams: '',
   }),
-
   computed:{
     ...mapState([
       'is_mobile'])
   },
-
   props: ["modelData"],
-
   mounted: function() {
     let $ = go.GraphObject.make;
     var is_mobile = this.is_mobile;
@@ -30,7 +25,6 @@ export default {
       spot1: go.Spot.TopLeft, spot2: go.Spot.BottomRight
     };
     var myDiagram = $(go.Diagram, this.$el,
-
       {
         initialDocumentSpot: is_mobile? go.Spot.LeftCenter:go.Spot.TopCenter,
         initialViewportSpot: is_mobile? go.Spot.LeftCenter:go.Spot.TopCenter,
@@ -58,7 +52,6 @@ export default {
               childPortSpot: go.Spot.Left,
             })
       });
-
     myDiagram.nodeTemplate =
         $(go.Node, "Auto",
           {
@@ -79,7 +72,6 @@ export default {
           ),
           $(go.Panel, "Vertical",
             { maxSize: new go.Size(600, Infinity), },
-
             $(go.Panel, "Horizontal",
               { maxSize: new go.Size(600, Infinity), padding: 12, alignment: go.Spot.LeftCenter},
               $(go.Picture, 
@@ -118,7 +110,6 @@ export default {
             ),
           ),
         );
-
     myDiagram.linkTemplate =
         $(go.Link, go.Link.Orthogonal,
           { corner: 5, selectable: false },
@@ -138,7 +129,6 @@ export default {
     model: function() {
      return this.diagram.model;
     },
-
     ...mapMutations([
       'setDiagramSize',
       'setDiagramTitle'
@@ -149,13 +139,10 @@ export default {
       this.setDiagramSize({height: dia.documentBounds.height+24, width: dia.documentBounds.width});
       this.setDiagramTitle(this.$t('home.text_title'));
     }
-
     
-
   }
 }
 </script>
 
 <style scoped>
-
 </style>

@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <div id="sum-page-div">
+      <v-col cols="12" sm="10" md="10" lg="10" xl="8">
         <div class="d-flex justify-space-between my-4" style="flex-wrap:wrap">
           <v-btn text large color="primary" class="mx-2" @click="toGuidePage()">
               <v-icon left color="primary">mdi-arrow-left</v-icon>
@@ -13,27 +13,31 @@
               <v-icon right color="primary">mdi-arrow-right</v-icon>
           </v-btn>
         </div>
-        <div class="d-flex justify-space-around my-4" style="flex-wrap:wrap">
-          <div
-            id="sum-title-div"
-            class="mr-2">
-            <h2>{{$t('summary.title_header')}}</h2>
-            <v-text-field
-              class="my-12 mx-2"
-              outlined
-              :label="$t('summary.title_header')"
-              v-model="pdf_title"
-            ></v-text-field>
-          </div>
-          <div>
-            <h2>{{$t('summary.title_logo')}}</h2>
-            <input type="file" @change="uploadImage($event)">
-            <canvas id="logo_canvas" v-if="logo_uploaded"></canvas>
-          </div>
-        </div>
-        <h2 class="my-4">{{$t('summary.title_summary')}}</h2>
-        <TreeDiagram id="sum-diagram" ref="diag" v-bind:model-data="diagram_data" style=""></TreeDiagram>
-      </div>
+        <v-row justify="center">
+          <v-col cols="12" sm="12" md="10" lg="10" xl="10">
+            <div class="d-flex justify-space-between my-4" style="flex-wrap:wrap">
+              <div
+                id="sum-title-div"
+                class="mr-2">
+                <h2>{{$t('summary.title_header')}}</h2>
+                <v-text-field
+                  class="my-12 mx-2"
+                  outlined
+                  :label="$t('summary.title_header')"
+                  v-model="pdf_title"
+                ></v-text-field>
+              </div>
+              <div>
+                <h2>{{$t('summary.title_logo')}}</h2>
+                <input type="file" @change="uploadImage($event)">
+                <canvas id="logo_canvas" v-if="logo_uploaded"></canvas>
+              </div>
+            </div>
+            <h2 class="my-4">{{$t('summary.title_summary')}}</h2>
+            <TreeDiagram id="sum-diagram" ref="diag" v-bind:model-data="diagram_data" style=""></TreeDiagram>
+          </v-col>
+        </v-row>
+      </v-col>
     </v-row>
   </v-container>
 </template>
